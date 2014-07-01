@@ -1,0 +1,382 @@
+@font-face {
+        font-family: "Forcedsqurare";
+        font-style: normal;
+        src: url("FORCEDSQUARE.ttf") format("truetype"); /* non-IE */
+}
+body
+{
+	background-color: #E9E9E9;
+	color: #3E3E3E;
+	font-family: Forcedsqurare;
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll
+}
+header
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px;
+	font-size: 3em;
+	width: 270px;
+	height: auto;
+}
+header h1
+{
+	margin: 0;
+	font-size: .95em;
+}
+header p
+{
+	margin-bottom: 0;
+}
+@media screen and (max-width: 1100px)
+{
+	header
+	{
+		font-size: 1.4em;
+	}
+}
+header p:first-child
+{
+	font-size: .6em;
+}
+header p
+{
+	margin-top: 0;
+}
+#main
+{
+	width: 600px;
+	margin: 0 auto;
+}
+#word-container
+{
+	padding-top: 5%;
+	width: 90%;
+	height: auto;
+	clear: both;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+#word-container div:first-child
+{
+	margin-left: 0;
+}
+.holder
+{
+	background-repeat: no-repeat;
+	width: 19.2%;
+	float: left;
+	height: .9em;
+	font-size: 5em;
+	text-align: center;
+	margin-left: 1%;
+	overflow: hidden;
+	line-height: 90%;
+	border-bottom: 5px solid black;
+}
+#game-container
+{
+	display: block;
+	width: 95%;
+	text-align: center;
+	font-size: 2em;
+	background-color: #8F6A45;
+	color: black;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 0 auto;
+	clear: both;
+}
+#new-game p
+{
+	font-size: 1.5em;
+	margin: 0;
+	margin-bottom: 25px;
+}
+#button-container
+{
+	clear: both;
+	height: 59px;
+}
+#button-container p
+{
+	margin: 0;
+	font-size: 1em;
+	display: inline;
+}
+.new-game-buttons
+{
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: #8F6A45;
+	color: white;
+	padding: 20px;
+	border-radius: 5px;
+	position: relative;
+	top: 10px;
+}
+@media screen and (max-width: 745px)
+{
+	.question-mark
+	{
+		left: 3px;
+		width: 6px;
+	}
+}
+html, body {height: 99.9%; /* stupid firefox? */}
+
+#wrap {min-height: 100%;}
+
+#main {overflow:hidden;}
+
+#footer {position: relative;
+	margin-top: -22px; /* negative value of footer height */
+	height: 22px;
+	padding-left: 5px;
+	clear:both;
+	font-family: Tahoma, Geneva, sans-serif;
+} 
+.small
+{
+	font-size: 10px;
+}
+@media screen and (max-width: 610px)
+{
+	header
+	{
+		width: auto;
+		padding-top: 3%;
+		margin-bottom: 0;
+		text-align: center;
+		position: static;
+		height: 15px;
+		font-size: 1.75em;
+	}
+	.holder
+	{
+		font-size: 3.2em;
+	}
+	header p:first-child
+	{
+		display: none;
+	}
+	#main
+	{
+		width: 100%;
+		padding: 0;
+		margin: 0 auto;
+	}
+	.new-game-buttons
+	{
+		display: block;
+		padding: 10px;
+		margin-bottom: 5px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		height: auto;
+	}
+	#new-game
+	{
+		height: auto;
+		padding-bottom: 6%;
+	}
+	#new-game p
+	{
+		margin-bottom: 0;
+		font-size: 1em;
+	}
+	#button-container
+	{
+		height: 100%;
+	}
+	.game-wrapper
+	{
+		width: 98%;
+	}
+
+}
+@media screen and (max-width: 300px)
+{
+	body
+	{
+		font-size: .8em;
+	}
+	header
+	{
+		font-size: 1.4em;
+	}
+	#footer
+	{
+		height: 18px;
+		margin-top: -18px;
+	}
+}
+.popup
+{
+	position: absolute;
+	width: 174px;
+	height: 118px;
+	background-image: url('quote.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	color: black;
+	padding: 15px;
+	padding-top: 12px;
+	text-align: center;
+	padding-bottom: 25px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: .72em;
+}
+.hideme
+{
+	position: absolute;
+	bottom: 24px;
+	right: 28px;
+	font-size: .8em;
+}
+
+
+.game-window
+{
+	display: none;
+	width: 100%;
+	background-color: #E0D6CD;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#multi-game
+{
+	height: 2px;
+}
+#multi-setup-wrapper, .hidden
+{
+	display: none;
+}
+.bottom
+{
+	position: absolute;
+	bottom: 50px;
+}
+#type-word-p, .first-guess
+{
+	font-size: .6em;
+}
+.game-title
+{
+	margin-bottom: 10px !important;
+}
+p
+{
+	margin: 0px;
+}
+hr
+{
+	margin: 8px 0;
+}
+.game-wrapper
+{
+	display: none;
+	width: 90%;
+	margin: 0 auto;
+}
+.word-row
+{
+	text-align: left;
+	height: 30px;
+	clear: both;
+	display: none;
+}
+.word-col
+{
+	float: left;
+	width: 4%;
+	text-align: center;
+	padding-right: 10%;
+}
+.word-col:nth-last-child(3)
+{
+	padding-right: 0;
+}
+.response
+{
+	font-size: .5em;
+	float: right;
+	width: 18%;
+	padding-left: 1%;
+	position: relative;
+	top: .5em;
+	text-align: center;
+}
+#rlwp, #rlrp
+{
+	top: 0;
+}
+#multi-guess-input
+{
+	padding-left: 0;
+}
+ottom-guess-inputs
+{
+	height: 30px;
+}
+textarea:focus, input:focus{
+    outline: 0;
+}
+.guess-button
+{
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 15px;
+	font-family: Arial;
+}
+.guess-input
+{
+	margin: 0;
+	padding: 0;
+	border-width: 2px;
+}
+#how-to-container
+{
+	width: 95%;
+	margin: 0 auto;
+	padding: 1%;
+	text-align: left;
+	font-size: .9em;
+	font-family: Tahoma, Geneva, sans-serif;
+	margin-top: 15px;
+	padding-bottom: 75px;
+}
+#how-to-container h3
+{
+	text-align: center;
+	margin: 10px;
+	margin-top: 0;
+	font-size: 1.5em;
+}
+ul
+{
+	padding-left: 25px;
+	padding-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	text-align: left;
+}
+li
+{
+	padding-bottom: 3px;
+}
+.bold
+{
+	font-weight: bold;
+}

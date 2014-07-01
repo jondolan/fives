@@ -1,4 +1,4 @@
-Fives
-=====
+FiveLetterWordGame
+==================
 
-A fun word game
+A fun game - guess the five letter word!
