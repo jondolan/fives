@@ -1,0 +1,729 @@
+.temp-show{position:absolute !important; visibility:hidden !important; display:block !important;}
+
+/* Font info */
+@font-face {
+	font-family: "Aharoni";
+	src: url("Aharoni.eot?") format("eot"), 
+	     url("Aharoni.woff") format("woff"), 
+	     url("Aharoni.ttf")  format("truetype"),
+	     url("Aharoni.svg#AharoniBold") format("svg");
+}
+
+/* Styles for the body */
+body
+{
+	background-color: #E9E9E9;
+    color: black;
+	font-family: 'Aharoni';
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll; /* to make sure the layout is consistent */
+    overflow-x: hidden;
+}
+html, body 
+{
+    height: 99.9%; /* stupid firefox? */
+}
+#wrap
+{
+    min-height: 100%;
+}
+
+/* Links */
+a:link, a:visited
+{
+    color: #3E3E3E;
+}
+a:hover
+{
+    color: #FF0000;
+}
+
+/* Other global overrides */
+ul
+{
+	padding-left: 25px;
+	padding-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	text-align: left;
+}
+li
+{
+	padding-bottom: 3px;
+}
+.bold
+{
+	font-weight: bold;
+}
+p
+{
+	margin: 0px;
+}
+hr
+{
+	margin: 8px 0;
+}
+
+/* Header related style */
+#header
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px;
+	width: auto;
+	height: auto;
+    font-size: 7em;
+}
+#header p:first-child
+{
+    margin: 0;
+	margin-bottom: -.2em;
+}
+#header p:last-child
+{
+	margin-bottom: 0;
+    float: right;
+    font-size: .25em;
+}
+
+/* Positioning the game board */
+#main
+{
+	width: 600px;
+	margin: 0 auto;
+    overflow: hidden;
+}
+
+/* The blank spaces for letters */
+#word-container
+{
+    width: 90%;
+	height: auto;
+	clear: both;
+	padding-top: 5%;
+    margin: 0 auto;
+	margin-bottom: 5px;
+	overflow: hidden;
+    
+	font-family: Tahoma, Geneva, sans-serif;
+}
+#word-container div:first-child
+{
+	margin-left: 0;
+}
+.holder
+{
+    width: 19.2%;
+	float: left;
+	height: .9em;
+    margin-left: 1%;
+	overflow: hidden;
+	line-height: 90%;
+    
+    text-align: center;
+    font-size: 5em;
+    
+    color: black;
+	background-repeat: no-repeat;
+	border-bottom: 5px solid black;
+}
+
+/* The actual game board */
+#game-container
+{
+	display: block;
+	width: 95%;
+    clear: both;
+    padding: 5px;
+	margin: 0 auto 100px auto;
+
+	text-align: center;
+	font-size: 2.5em;
+    
+	background-color: #8F6A45;
+	color: black;
+	border-radius: 5px;
+}
+
+/* All game type containers */
+.game-window
+{
+	width: 100%;
+    height: 0;
+    padding: 0;
+    margin: 0;
+	/*padding-top: 20px;
+	padding-bottom: 20px;
+    RECOMENDED BUT DONE BY ANIMATION*/
+    
+    text-align: center;
+    
+	background-color: #E0D6CD;
+	border-radius: 5px;
+}
+.hidden-game
+{
+    display: none;
+}
+
+/* All game wrappers */
+.game-wrapper
+{
+	width: 90%;
+	margin: 0 auto;
+}
+
+/* The new game container */
+#new-game
+{
+    padding-top: 20px;
+	padding-bottom: 5px;
+    height: auto;
+}
+#new-game p
+{
+	margin-bottom: 10px;
+    
+	font-size: 1.5em;
+}
+.new-game-buttons
+{
+	width: 230px;
+	height: 40px;
+	background-color: #8F6A45;
+	color: white;
+	padding: 20px;
+    margin: 5px 0 5px 0;
+	border-radius: 5px;
+    display: inline-table;
+    position: relative;
+}
+.new-game-buttons p
+{
+    display: table-cell; 
+    vertical-align: middle; 
+    text-align: center;
+    font-size: 1em !important;
+    margin: 0;
+}
+
+/* MultiGame styles */
+#type-word-p, .first-guess
+{
+	font-size: .7em;
+}
+.small-notice
+{
+    margin-top: 2px;
+    font-size: .6em;
+}
+#multi-setup-wrapper input
+{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Easy (practice) game */
+#easy-game-wrapper
+{
+    width: 100%;
+}
+.easy-word-col
+{
+    float: left;
+    text-align: center;
+	width: 12%;
+	padding-right: 1.5%;
+    padding-left: 5.5%;
+}
+.easy-word-col:nth-last-child(1)
+{
+	padding-right: 0;
+}
+.green, .yellow, .orange, .red
+{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.green
+{
+    color: green;
+}
+.yellow
+{
+    color: #FFFF33;
+}
+.orange
+{
+    color: orange;
+}
+.red
+{
+    color: red;
+}
+
+/* Time trial */
+#time-game
+{
+    position: relative;
+}
+.timer
+{
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    display: inherit;
+}
+
+/* Word columns */
+.word-row
+{
+	text-align: left;
+	height: 40px;
+	clear: both;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.word-col
+{
+	float: left;
+	width: 4%;
+	text-align: center;
+	margin-right: 10%;
+}
+.reponse, .word-col, .word-row, #lookup-dialog /* just to help with double clicking highlighting... */
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.word-col:nth-last-child(3)
+{
+	margin-right: 0;
+}
+.response
+{
+	font-size: .6em;
+	float: right;
+	width: 18%;
+	padding-left: 1%;
+	position: relative;
+	top: .4em;
+	text-align: center;
+}
+#rlwp, #rlrp
+{
+	top: 0;
+}
+
+/* Input for guesses */
+.guess-input
+{
+	margin: 0;
+    padding: 0;
+    position: relative;
+    top: -14px;
+}
+.guess-button
+{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    top: -14px;
+}
+.bottom-guess-inputs
+{
+    position: relative;
+    margin-top: 20px;
+}
+.fix
+{
+    height: 20px;
+}
+.first-guess
+{
+    margin-bottom: -10px;
+}
+
+/* Lookup button */
+.lookup-button
+{
+    font-size: .4em;
+    margin-top: -10px;
+}
+#lookup-dialog
+{
+    position: absolute;
+    width: 225px;
+    height: 50%;
+    right: 0;
+    top: 50%;
+    background-color: #8F6A45;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5px;
+    display: none;
+}
+#switches .active
+{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#switches
+{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1%;
+}
+.switch-button
+{
+    float: left;
+    width: 50%;
+    margin: 0 -2px 0 -2px;
+    padding: 5px 0 5px 0;
+    border-radius: 5px;
+    background-color: #9A7958;
+}
+#switches span:last-child
+{
+    float: right;
+}
+#lookup-input
+{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    border-width: 2px;
+}
+#lookup-feedback
+{
+    position: absolute;
+    resize: none;
+    width: 89%;
+    left: 4%;
+    margin: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top: 115px;
+    bottom: 8px;
+    white-space: nowrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.move
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    background-image: url('../images/move.png');
+    height: 15px;
+    width: 15px;
+    overflow: hidden;
+    background-size: 100%;
+    cursor: pointer;
+}
+.center
+{
+    text-align: center;
+}
+.popup-button
+{
+    cursor: pointer;
+}
+.popup-button:last-child
+{
+    margin-left: 10%;
+}
+.popup-tweet
+{
+    background-color: #E0D6CD;
+    border-radius: 5px;
+    width: 90%;
+    padding: 10px;
+    margin: 15px auto;
+    color: black;
+}
+.close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: red;
+    cursor: pointer;
+}
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-draggable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0;
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px;
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px;
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px;
+}
+
+/* Container that explains the game */
+#how-to-container
+{
+	width: 95%;
+	margin: -85px auto 0 auto;
+	padding: 1%;
+	text-align: left;
+	font-size: .9em;
+	font-family: Tahoma, Geneva, sans-serif;
+	padding-bottom: 75px;
+    
+    color: #3E3E3E;
+}
+#how-to-container h3
+{
+	text-align: center;
+	margin: 10px;
+	margin-top: 0;
+	font-size: 1.5em;
+}
+
+/* Footer */
+#footer 
+{
+    position: relative;
+	margin-top: -22px; /* negative value of footer height */
+	height: 22px;
+	padding-left: 5px;
+	clear:both;
+	font-family: Tahoma, Geneva, sans-serif;
+} 
+/* Styles for different screen size responsiveness */
+@media screen and (max-width: 1230px)
+{
+	#header
+	{
+		font-size: 6em;
+	}
+}
+@media screen and (max-width: 1120px)
+{
+    #header
+	{
+		padding-top: 10px;
+		margin-bottom: 0;
+		text-align: center;
+        position: static;
+        font-size: 4em;
+	}
+    #header p:last-child
+    {
+        float: none;
+    }
+	.holder
+	{
+		font-size: 3.2em;
+	}
+    #word-container
+    {
+        padding-top: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 610px)
+{
+	#main
+	{
+		width: 100%;
+		padding: 0;
+		margin: 0 auto;
+	}
+    #new-game
+    {
+        padding-bottom: 20px;
+    }
+	.new-game-buttons
+	{
+		width: 60%;
+	}
+	#new-game p:first-child
+	{
+		font-size: 1em;
+	}
+    #game-container
+    {
+        font-size: 2em;
+    }
+    #type-word-p
+    {
+        font-size: .6em;
+    }
+    #lookup-dialog
+    {
+        width: 90%;
+        height: 90%;
+        right: 5%;
+        top: 5%;
+        overflow: hidden;
+        border-radius: 5px;
+        display: none;
+    }
+    #lookup-dialog .move
+    {
+        display: none;
+    }
+}
+@media screen and (max-width: 300px)
+{
+	body
+	{
+		font-size: .8em;
+	}
+	header
+	{
+		font-size: 1.4em;
+	}
+	#footer
+	{
+		height: 18px;
+		margin-top: -18px;
+	}
+}
+/*-------------------------------
+
+	POPUP.CSS
+
+-------------------------------*/
+
+.popup_back {
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.popup_cont {
+	position: fixed;
+	z-index: 102;
+}
+
+.preloader {
+	z-index: 101;
+}
+
+/*---------------------
+
+	EDIT BELOW
+
+*/
+
+.popup_close {
+	color: #888;
+	cursor: pointer;
+	position: absolute;
+	padding: 5px;
+	right: 5px;
+	top: 0;
+}
+
+.popup_close:hover {
+	color: #111;
+}
+
+.popup_back {
+	cursor: pointer;
+	background-color: #222;
+}
+
+div.popup {
+	background: #8F6A45;
+    color: white;
+	padding: 25px;
+	box-shadow: 0 3px 10px #222;
+}
+
+.preloader {
+	left: 50%;
+	margin: -10px 0 0 -25px;
+	position: fixed;
+	top: 50%;
+}
