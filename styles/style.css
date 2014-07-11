@@ -294,7 +294,7 @@ hr
 	text-align: center;
 	margin-right: 10%;
 }
-.reponse, .word-col, .word-row, #lookup-dialog /* just to help with double clicking highlighting... */
+.reponse, .word-col, .word-row /* just to help with double clicking highlighting... */
 {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -352,84 +352,7 @@ hr
     margin-bottom: -10px;
 }
 
-/* Lookup button */
-.lookup-button
-{
-    font-size: .4em;
-    margin-top: -10px;
-}
-#lookup-dialog
-{
-    position: absolute;
-    width: 225px;
-    height: 50%;
-    right: 0;
-    top: 50%;
-    background-color: #8F6A45;
-    color: white;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 5px;
-    display: none;
-}
-#switches .active
-{
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-#switches
-{
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 1%;
-}
-.switch-button
-{
-    float: left;
-    width: 50%;
-    margin: 0 -2px 0 -2px;
-    padding: 5px 0 5px 0;
-    border-radius: 5px;
-    background-color: #9A7958;
-}
-#switches span:last-child
-{
-    float: right;
-}
-#lookup-input
-{
-    padding: 0;
-    margin: 0;
-    width: 90%;
-    border-width: 2px;
-}
-#lookup-feedback
-{
-    position: absolute;
-    resize: none;
-    width: 89%;
-    left: 4%;
-    margin: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    top: 115px;
-    bottom: 8px;
-    white-space: nowrap;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-.move
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 5px;
-    background-image: url('../images/move.png');
-    height: 15px;
-    width: 15px;
-    overflow: hidden;
-    background-size: 100%;
-    cursor: pointer;
-}
+/* Popup buttons */
 .center
 {
     text-align: center;
@@ -634,20 +557,6 @@ hr
     #type-word-p
     {
         font-size: .6em;
-    }
-    #lookup-dialog
-    {
-        width: 90%;
-        height: 90%;
-        right: 5%;
-        top: 5%;
-        overflow: hidden;
-        border-radius: 5px;
-        display: none;
-    }
-    #lookup-dialog .move
-    {
-        display: none;
     }
 }
 @media screen and (max-width: 300px)

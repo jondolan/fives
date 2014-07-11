@@ -221,13 +221,6 @@ WordGame.prototype.animateFirstGuess = function (rowToAdd) { // animate the firs
     guessinputbutton.setAttribute('onclick', "game.enterGuess('" + this.gameName + "-guess-input');");
     guessinputp.appendChild(guessinputbutton);
     
-    var lookup = document.createElement('p');
-    lookup.setAttribute('class', 'lookup-button');
-    lookup.setAttribute('id', this.gameName + '-lookup-button');
-    lookup.setAttribute('onclick', "game.showLookupWord();");
-    lookup.innerHTML = "Lookup a word";
-    guessinputp.appendChild(lookup);
-    
     $("#" + this.gameName + '-first-guess-wrapper').animate({
         'opacity': '0'
     }, function() {
@@ -316,59 +309,6 @@ WordGame.prototype.highlightLetter = function (el) { // highlight the letters wh
     else
         el.addClass('red');
 };
-WordGame.prototype.showLookupWord = function () {
-    $("#lookup-dialog").fadeToggle();
-};
-function lookupWord() { // looks up a word
-    var query = $("#lookup-input").val().toLowerCase();
-    var out = $("#lookup-feedback");
-    out.empty();
-    
-    var newline = "&#13;&#10;";
-    
-    if (query.length != 5)  // has to be length 5
-        return;
-    else
-    {
-        var active = (($("#switches .active").text().toLowerCase() == "small") ? smallWordList : largeWordList);
-        for (i = 0; i < active.length; i++) {
-            var letters = active[i].split("");
-            
-            var match = [false, false, false, false, false];
-            var totalmatch = true;
-
-                        
-            for (q = 0; q < letters.length; q++) {
-                if (query[q] == "*" || query[q] == letters[q])
-                {
-                    match[q] = true;
-                }
-            }
-            for (y = 0; y < match.length; y++) {
-                if (match[y] == false)
-                {
-                    totalmatch = false;
-                    break;
-                }
-            }
-            
-            if (totalmatch == true)
-                out.append(active[i] + newline);
-        }
-    }
-}
-function toggleList(element) {
-    var active = $("#switches .active");
-    if (active.text() == element.innerHTML)
-        return;
-    active.removeClass("active");
-    
-    if (active.text().toLowerCase() == "small")
-        $("span.switch-button").last().addClass("active");
-    else
-        $("span.switch-button").first().addClass("active");
-    lookupWord();    
-}
 
 function RegularGame(word) {// create more specific RegularGame class, no difference from WordGame though, just a formality
     this.base = WordGame;
@@ -650,7 +590,6 @@ var confirmOnPageExit = function (e)
  
 /* Time saving keybindings */
 $(document).ready(function () {
-    $("#lookup-dialog").draggable({snap: "body", snapMode: 'inner', handle: '.move'}).resizable({ handles: "n", minWidth: 225, maxWidth: 225, minHeight: 225 });
     $(document).on('keydown', function (event) { 
         if (event.keyCode == 80)
             startGame('easy'); 
