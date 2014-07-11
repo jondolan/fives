@@ -403,8 +403,6 @@ function updateTimer() { // interval to update the timer every one second
 TimeGame.prototype.gameWonMessage = function () {
     clearInterval(game.gameInterval);
     return "I won a #Fives \"" + game.fancyName + "\" game in " + ((game.timerMins == 0) ? "" : (game.timerMins + " " + (((game.timerMins == 1) ? "minute" : "minutes") + " and "))) + game.timerSecs + " " + ((game.timerSecs == 1) ? "second" : "seconds") + "! The word was " + game.getWord() + ".";    
-
-    alert('You won in ' +  + ". Tweet it?");
 };
 
 
