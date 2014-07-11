@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="en">
 	<meta name = "viewport" content = "user-scalable=no, width=device-width">
-	<meta name="description" content="Five Letter Word Game by Jon Dolan is a fun addicting guessing game!">
-	<meta name="keywords" content="five letter word game, word game">
-	<meta http-equiv="content-language" content="en">
-	<title>Five Letter Word Game</title>
+	<meta name="description" content="Fives (Word Game) by Jon Dolan is a fun addicting guessing game!">
+	<meta name="keywords" content="fives, five, word, game">
+	<title>Fives</title>
+    <script>
+        var parts = location.hostname.split('.');
+        var subdomain = parts.shift();
+        if (subdomain == "fives" || subdomain == "fivesbeta")
+        {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-51448816-2', 'jondolan.me');
+            ga('send', 'pageview');
+        }
+	</script>
 	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel = "stylesheet" type = "text/css" href = "styles/style.css">
-	<script type = "text/javascript" src = "scripts/ui.js"></script>
-	<script type = "text/javascript" src = "scripts/keyboard.js"></script>
+    <script type = "text/javascript" src = "scripts/jquery-1.11.1.min.js"></script>
 	<script type = "text/javascript" src = "scripts/game.js"></script>
-	<script type = "text/javascript" src = "scripts/wordlists.js"></script>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-51448816-2', 'jondolan.me');
-		ga('send', 'pageview');
-	</script>
 </head>
 <body>
-
 <div id = "wrap">
-<header>
-	<p>FIVES.JONDOLAN.ME</p>
-	<h1>Five letters, one game.</h1>
-</header>
+<div id = "header">
+	<p>Fives</p>
+    <p>By Jon Dolan</p>
+</div>
 <div id = "main">
 	<div id = "word-container">
 		<div class = "holder"></div>
@@ -37,20 +40,27 @@
 		<div class = "holder"></div>
 	</div>
 	<div id = "game-container">
-		<div id = "new-game" class = "game-window" style="display: block;">
-			<p>Pick a mode</p>
-				<div id = "button-container">
-					<div class = "new-game-buttons" onclick="startGame('easy');">Easy</div>
-					<div class = "new-game-buttons" onclick="startGame('regular');">Regular</div>
-					<div class = "new-game-buttons" onclick="startGame('multi');">Multiplayer</div>
-				</div>
+		<div id = "new-game" class = "game-window">
+			<p>Select a mode</p>
+            <div id = "button-container">
+                <div class = "new-game-buttons" id = "easy-start-button" onclick="startGame('easy');"><p>Practice</p></div>
+                <div class = "new-game-buttons" id = "regular-start-button" onclick="startGame('regular');"><p>Classic&nbsp </p></div>
+                <div class = "new-game-buttons" id = "time-start-button" onclick="startGame('time');"><p>Time Trial</p></div>
+                <div class = "new-game-buttons" id = "multi-start-button" onclick="startGame('multi');"><p>Multiplayer</p></div>
+            </div>
 		</div>
-		<div id = "easy-game" class = "game-window">
-		</div>
-		<div id = "regular-game" class = "game-window">
-		</div>
-		<div id = "multi-game" class = "game-window"></div>
 	</div>
+    <div id = "lookup-dialog">
+        <span class = "move"></span>
+        <span class = "close" onclick="$('#lookup-dialog').fadeOut()">X</span>
+        <h2 id = "lookup-title">Word lookup</h2>
+        <input id = "lookup-input" onkeyup = "lookupWord();" placeholder = "Type 5 characters to search" maxlength="5"></input>
+        <div id = "switches">
+            <span class = "switch-button active" onclick = "toggleList(this)">Small</span>
+            <span class = "switch-button" onclick = "toggleList(this)">Large</span>
+        </div>
+        <textarea readonly id = "lookup-feedback"></textarea>
+    </div>
 	<div id = "how-to-container">
 		<h3>How to play</h3>
 		<span class = "bold">Objective:</span> use 10 guesses to eliminate letters in order to determine the five letter word!
@@ -58,27 +68,44 @@
 		For each guess, the number of "right letters in the wrong place" (rlwp) and "right letters in the right place" (rlrp) are given.
 		<br /><br />
 		<span class = "bold">Example:</span> The word is "yield" and the guess is "tired". "e" appears in the word and the guess, but in different places, so rlwp is 1. "i" and "d" are in the same places in the word and the guess, so rlrp is 2. 
-		<br /><br /><br />
-		<span class = "bold">Easy mode:</span>
+		<br /><br /><br /><br />
+		<span class = "bold">Practice (Easy) mode:</span>
 		<ul>
 			<li>Computer picks the word for the player(s) to guess.</li>
 			<li>Letters in the right place are highlighted green and letters in the wrong place (but in the word) are highlighted yellow. No numbers are given.</li>
 		</ul>
-		<span class = "bold">Regular:</span>
+		<span class = "bold">Classic (Regular) mode:</span>
 		<ul>
 			<li>Computer picks the word for the player(s) to guess.</li>
 			<li>The number of rlwp and rlrp are shown to the side of each guess. No highlighting.</li>
 		</ul>
-		<span class = "bold">Multiplayer:</span>
+        <span class = "bold">Time Trial:</span>
 		<ul>
-			<li>One player picks the word and the remaining players try to guess it.</li>
-			<li>Same number process as "regular" mode.</li>
+			<li>Same rules as classic mode.</li>
+            <li>Objective is to solve the word in the least amount of time.</li>
 		</ul>
+		<span class = "bold">(Local) Multiplayer:</span>
+		<ul>
+            <li>Same rules as classic mode.</li>
+			<li>One player picks the word and the remaining player(s) try to guess it.</li>
+			
+		</ul>
+        <br /><br />
+        <h3>Wordlist information:</h3>
+        There are 2 wordlists in Fives.
+        <br /><br />
+        The first one is large and contains all words that are valid as guesses <span class = "bold">and</span> as the input for a multiplayer game. There are over 8,000 words in this list.
+        <br />
+        The second one is smaller, just over 1,600 words, and contains words that the computer can pick from. This makes the game a lot more fun for everyone.
+        <br /><br />
+        If you find a word that should be added to or removed from either of the word lists, click the bug link below and send me an email! Thanks.
 	</div>
 </div>
 </div>
 <div id = "footer">
-	<div id = "copyright">Copyright Jon Dolan 2014. <a href = "https://github.com/jondolan/FiveLetterWordGame/blob/gh-pages/LICENSE">Link to license (MIT)</a>  <a href ="https://github.com/jondolan/FiveLetterWordGame/commits/gh-pages">Changelog</a>  <a href = "#" class = "small" onclick="showAlert('ack');">Info</a>  <a class = "small" href="mailto:jondolan33@gmail.com?subject=I found a bug in the 5LWG:">Report Bug</a></div>
-</div>	
+	<div id = "copyright">Copyright Jon Dolan 2014. <a href = "https://github.com/jondolan/fives/blob/gh-pages/LICENSE">License</a>     |     <a href ="changes">View recent changes or submit a bug</a></div>
+</div>
+<iframe id = "hidden-iframe" style = "display: none"></iframe> <!-- For hash tracking in old IE browsers -->	
+<div id = "popup"></div>
 </body>
 </html>

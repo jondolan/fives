@@ -1,65 +1,112 @@
+.temp-show{position:absolute !important; visibility:hidden !important; display:block !important;}
+
+/* Font info */
 @font-face {
-        font-family: "Forcedsqurare";
-        font-style: normal;
-        src: url("FORCEDSQUARE.ttf") format("truetype"); /* non-IE */
+	font-family: "Aharoni";
+	src: url("Aharoni.eot?") format("eot"), 
+	     url("Aharoni.woff") format("woff"), 
+	     url("Aharoni.ttf")  format("truetype"),
+	     url("Aharoni.svg#AharoniBold") format("svg");
 }
+
+/* Styles for the body */
 body
 {
 	background-color: #E9E9E9;
-	color: #3E3E3E;
-	font-family: Forcedsqurare;
+    color: black;
+	font-family: 'Aharoni';
 	padding: 0;
 	margin: 0;
-	overflow-y: scroll
+	overflow-y: scroll; /* to make sure the layout is consistent */
+    overflow-x: hidden;
 }
-header
+html, body 
+{
+    height: 99.9%; /* stupid firefox? */
+}
+#wrap
+{
+    min-height: 100%;
+}
+
+/* Links */
+a:link, a:visited
+{
+    color: #3E3E3E;
+}
+a:hover
+{
+    color: #FF0000;
+}
+
+/* Other global overrides */
+ul
+{
+	padding-left: 25px;
+	padding-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	text-align: left;
+}
+li
+{
+	padding-bottom: 3px;
+}
+.bold
+{
+	font-weight: bold;
+}
+p
+{
+	margin: 0px;
+}
+hr
+{
+	margin: 8px 0;
+}
+
+/* Header related style */
+#header
 {
 	position: absolute;
 	top: 0;
 	left: 0;
 	padding: 5px;
-	font-size: 3em;
-	width: 270px;
+	width: auto;
 	height: auto;
+    font-size: 7em;
 }
-header h1
+#header p:first-child
 {
-	margin: 0;
-	font-size: .95em;
+    margin: 0;
+	margin-bottom: -.2em;
 }
-header p
+#header p:last-child
 {
 	margin-bottom: 0;
+    float: right;
+    font-size: .25em;
 }
-@media screen and (max-width: 1100px)
-{
-	header
-	{
-		font-size: 1.4em;
-	}
-}
-header p:first-child
-{
-	font-size: .6em;
-}
-header p
-{
-	margin-top: 0;
-}
+
+/* Positioning the game board */
 #main
 {
 	width: 600px;
 	margin: 0 auto;
+    overflow: hidden;
 }
+
+/* The blank spaces for letters */
 #word-container
 {
-	padding-top: 5%;
-	width: 90%;
+    width: 90%;
 	height: auto;
 	clear: both;
-	overflow: hidden;
-	margin: 0 auto;
+	padding-top: 5%;
+    margin: 0 auto;
 	margin-bottom: 5px;
+	overflow: hidden;
+    
 	font-family: Tahoma, Geneva, sans-serif;
 }
 #word-container div:first-child
@@ -68,139 +115,540 @@ header p
 }
 .holder
 {
-	background-repeat: no-repeat;
-	width: 19.2%;
+    width: 19.2%;
 	float: left;
 	height: .9em;
-	font-size: 5em;
-	text-align: center;
-	margin-left: 1%;
+    margin-left: 1%;
 	overflow: hidden;
 	line-height: 90%;
+    
+    text-align: center;
+    font-size: 5em;
+    
+    color: black;
+	background-repeat: no-repeat;
 	border-bottom: 5px solid black;
 }
+
+/* The actual game board */
 #game-container
 {
 	display: block;
 	width: 95%;
+    clear: both;
+    padding: 5px;
+	margin: 0 auto 100px auto;
+
 	text-align: center;
-	font-size: 2em;
+	font-size: 2.5em;
+    
 	background-color: #8F6A45;
 	color: black;
 	border-radius: 5px;
-	padding: 5px;
+}
+
+/* All game type containers */
+.game-window
+{
+	width: 100%;
+    height: 0;
+    padding: 0;
+    margin: 0;
+	/*padding-top: 20px;
+	padding-bottom: 20px;
+    RECOMENDED BUT DONE BY ANIMATION*/
+    
+    text-align: center;
+    
+	background-color: #E0D6CD;
+	border-radius: 5px;
+}
+.hidden-game
+{
+    display: none;
+}
+
+/* All game wrappers */
+.game-wrapper
+{
+	width: 90%;
 	margin: 0 auto;
-	clear: both;
+}
+
+/* The new game container */
+#new-game
+{
+    padding-top: 20px;
+	padding-bottom: 5px;
+    height: auto;
 }
 #new-game p
 {
+	margin-bottom: 10px;
+    
 	font-size: 1.5em;
-	margin: 0;
-	margin-bottom: 25px;
-}
-#button-container
-{
-	clear: both;
-	height: 59px;
-}
-#button-container p
-{
-	margin: 0;
-	font-size: 1em;
-	display: inline;
 }
 .new-game-buttons
 {
-	width: 100px;
-	height: 50px;
-	display: inline;
+	width: 230px;
+	height: 40px;
 	background-color: #8F6A45;
 	color: white;
 	padding: 20px;
+    margin: 5px 0 5px 0;
 	border-radius: 5px;
-	position: relative;
-	top: 10px;
+    display: inline-table;
+    position: relative;
 }
-@media screen and (max-width: 745px)
+.new-game-buttons p
 {
-	.question-mark
-	{
-		left: 3px;
-		width: 6px;
-	}
+    display: table-cell; 
+    vertical-align: middle; 
+    text-align: center;
+    font-size: 1em !important;
+    margin: 0;
 }
-html, body {height: 99.9%; /* stupid firefox? */}
 
-#wrap {min-height: 100%;}
+/* MultiGame styles */
+#type-word-p, .first-guess
+{
+	font-size: .7em;
+}
+.small-notice
+{
+    margin-top: 2px;
+    font-size: .6em;
+}
+#multi-setup-wrapper input
+{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
 
-#main {overflow:hidden;}
+/* Easy (practice) game */
+#easy-game-wrapper
+{
+    width: 100%;
+}
+.easy-word-col
+{
+    float: left;
+    text-align: center;
+	width: 12%;
+	padding-right: 1.5%;
+    padding-left: 5.5%;
+}
+.easy-word-col:nth-last-child(1)
+{
+	padding-right: 0;
+}
+.green, .yellow, .orange, .red
+{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.green
+{
+    color: green;
+}
+.yellow
+{
+    color: #FFFF33;
+}
+.orange
+{
+    color: orange;
+}
+.red
+{
+    color: red;
+}
 
-#footer {position: relative;
+/* Time trial */
+#time-game
+{
+    position: relative;
+}
+.timer
+{
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    display: inherit;
+}
+
+/* Word columns */
+.word-row
+{
+	text-align: left;
+	height: 40px;
+	clear: both;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.word-col
+{
+	float: left;
+	width: 4%;
+	text-align: center;
+	margin-right: 10%;
+}
+.reponse, .word-col, .word-row, #lookup-dialog /* just to help with double clicking highlighting... */
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.word-col:nth-last-child(3)
+{
+	margin-right: 0;
+}
+.response
+{
+	font-size: .6em;
+	float: right;
+	width: 18%;
+	padding-left: 1%;
+	position: relative;
+	top: .4em;
+	text-align: center;
+}
+#rlwp, #rlrp
+{
+	top: 0;
+}
+
+/* Input for guesses */
+.guess-input
+{
+	margin: 0;
+    padding: 0;
+    position: relative;
+    top: -14px;
+}
+.guess-button
+{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    top: -14px;
+}
+.bottom-guess-inputs
+{
+    position: relative;
+    margin-top: 20px;
+}
+.fix
+{
+    height: 20px;
+}
+.first-guess
+{
+    margin-bottom: -10px;
+}
+
+/* Lookup button */
+.lookup-button
+{
+    font-size: .4em;
+    margin-top: -10px;
+}
+#lookup-dialog
+{
+    position: absolute;
+    width: 225px;
+    height: 50%;
+    right: 0;
+    top: 50%;
+    background-color: #8F6A45;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5px;
+    display: none;
+}
+#switches .active
+{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#switches
+{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1%;
+}
+.switch-button
+{
+    float: left;
+    width: 50%;
+    margin: 0 -2px 0 -2px;
+    padding: 5px 0 5px 0;
+    border-radius: 5px;
+    background-color: #9A7958;
+}
+#switches span:last-child
+{
+    float: right;
+}
+#lookup-input
+{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    border-width: 2px;
+}
+#lookup-feedback
+{
+    position: absolute;
+    resize: none;
+    width: 89%;
+    left: 4%;
+    margin: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top: 115px;
+    bottom: 8px;
+    white-space: nowrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.move
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    background-image: url('../images/move.png');
+    height: 15px;
+    width: 15px;
+    overflow: hidden;
+    background-size: 100%;
+    cursor: pointer;
+}
+.center
+{
+    text-align: center;
+}
+.popup-button
+{
+    cursor: pointer;
+}
+.popup-button:last-child
+{
+    margin-left: 10%;
+}
+.popup-tweet
+{
+    background-color: #E0D6CD;
+    border-radius: 5px;
+    width: 90%;
+    padding: 10px;
+    margin: 15px auto;
+    color: black;
+}
+.close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: red;
+    cursor: pointer;
+}
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-draggable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0;
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px;
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px;
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px;
+}
+
+/* Container that explains the game */
+#how-to-container
+{
+	width: 95%;
+	margin: -85px auto 0 auto;
+	padding: 1%;
+	text-align: left;
+	font-size: .9em;
+	font-family: Tahoma, Geneva, sans-serif;
+	padding-bottom: 75px;
+    
+    color: #3E3E3E;
+}
+#how-to-container h3
+{
+	text-align: center;
+	margin: 10px;
+	margin-top: 0;
+	font-size: 1.5em;
+}
+
+/* Footer */
+#footer 
+{
+    position: relative;
 	margin-top: -22px; /* negative value of footer height */
 	height: 22px;
 	padding-left: 5px;
 	clear:both;
 	font-family: Tahoma, Geneva, sans-serif;
 } 
-.small
+/* Styles for different screen size responsiveness */
+@media screen and (max-width: 1230px)
 {
-	font-size: 10px;
-}
-@media screen and (max-width: 610px)
-{
-	header
+	#header
 	{
-		width: auto;
-		padding-top: 3%;
+		font-size: 6em;
+	}
+}
+@media screen and (max-width: 1120px)
+{
+    #header
+	{
+		padding-top: 10px;
 		margin-bottom: 0;
 		text-align: center;
-		position: static;
-		height: 15px;
-		font-size: 1.75em;
+        position: static;
+        font-size: 4em;
 	}
+    #header p:last-child
+    {
+        float: none;
+    }
 	.holder
 	{
 		font-size: 3.2em;
 	}
-	header p:first-child
-	{
-		display: none;
-	}
+    #word-container
+    {
+        padding-top: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 610px)
+{
 	#main
 	{
 		width: 100%;
 		padding: 0;
 		margin: 0 auto;
 	}
+    #new-game
+    {
+        padding-bottom: 20px;
+    }
 	.new-game-buttons
 	{
-		display: block;
-		padding: 10px;
-		margin-bottom: 5px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-		height: auto;
+		width: 60%;
 	}
-	#new-game
+	#new-game p:first-child
 	{
-		height: auto;
-		padding-bottom: 6%;
-	}
-	#new-game p
-	{
-		margin-bottom: 0;
 		font-size: 1em;
 	}
-	#button-container
-	{
-		height: 100%;
-	}
-	.game-wrapper
-	{
-		width: 98%;
-	}
-
+    #game-container
+    {
+        font-size: 2em;
+    }
+    #type-word-p
+    {
+        font-size: .6em;
+    }
+    #lookup-dialog
+    {
+        width: 90%;
+        height: 90%;
+        right: 5%;
+        top: 5%;
+        overflow: hidden;
+        border-radius: 5px;
+        display: none;
+    }
+    #lookup-dialog .move
+    {
+        display: none;
+    }
 }
 @media screen and (max-width: 300px)
 {
@@ -218,165 +666,64 @@ html, body {height: 99.9%; /* stupid firefox? */}
 		margin-top: -18px;
 	}
 }
-.popup
-{
-	position: absolute;
-	width: 174px;
-	height: 118px;
-	background-image: url('quote.png');
-	background-repeat: no-repeat;
-	background-position:center;
-	color: black;
-	padding: 15px;
-	padding-top: 12px;
-	text-align: center;
-	padding-bottom: 25px;
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: .72em;
-}
-.hideme
-{
-	position: absolute;
-	bottom: 24px;
-	right: 28px;
-	font-size: .8em;
-}
+/*-------------------------------
 
+	POPUP.CSS
 
-.game-window
-{
-	display: none;
+-------------------------------*/
+
+.popup_back {
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
 	width: 100%;
-	background-color: #E0D6CD;
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	z-index: 100;
 }
-#multi-game
-{
-	height: 2px;
+
+.popup_cont {
+	position: fixed;
+	z-index: 102;
 }
-#multi-setup-wrapper, .hidden
-{
-	display: none;
+
+.preloader {
+	z-index: 101;
 }
-.bottom
-{
+
+/*---------------------
+
+	EDIT BELOW
+
+*/
+
+.popup_close {
+	color: #888;
+	cursor: pointer;
 	position: absolute;
-	bottom: 50px;
-}
-#type-word-p, .first-guess
-{
-	font-size: .6em;
-}
-.game-title
-{
-	margin-bottom: 10px !important;
-}
-p
-{
-	margin: 0px;
-}
-hr
-{
-	margin: 8px 0;
-}
-.game-wrapper
-{
-	display: none;
-	width: 90%;
-	margin: 0 auto;
-}
-.word-row
-{
-	text-align: left;
-	height: 30px;
-	clear: both;
-	display: none;
-}
-.word-col
-{
-	float: left;
-	width: 4%;
-	text-align: center;
-	padding-right: 10%;
-}
-.word-col:nth-last-child(3)
-{
-	padding-right: 0;
-}
-.response
-{
-	font-size: .5em;
-	float: right;
-	width: 18%;
-	padding-left: 1%;
-	position: relative;
-	top: .5em;
-	text-align: center;
-}
-#rlwp, #rlrp
-{
+	padding: 5px;
+	right: 5px;
 	top: 0;
 }
-#multi-guess-input
-{
-	padding-left: 0;
+
+.popup_close:hover {
+	color: #111;
 }
-ottom-guess-inputs
-{
-	height: 30px;
+
+.popup_back {
+	cursor: pointer;
+	background-color: #222;
 }
-textarea:focus, input:focus{
-    outline: 0;
+
+div.popup {
+	background: #8F6A45;
+    color: white;
+	padding: 25px;
+	box-shadow: 0 3px 10px #222;
 }
-.guess-button
-{
-	padding-top: 0;
-	padding-bottom: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 15px;
-	font-family: Arial;
-}
-.guess-input
-{
-	margin: 0;
-	padding: 0;
-	border-width: 2px;
-}
-#how-to-container
-{
-	width: 95%;
-	margin: 0 auto;
-	padding: 1%;
-	text-align: left;
-	font-size: .9em;
-	font-family: Tahoma, Geneva, sans-serif;
-	margin-top: 15px;
-	padding-bottom: 75px;
-}
-#how-to-container h3
-{
-	text-align: center;
-	margin: 10px;
-	margin-top: 0;
-	font-size: 1.5em;
-}
-ul
-{
-	padding-left: 25px;
-	padding-right: 5px;
-	margin-bottom: 5px;
-	margin-top: 0;
-	text-align: left;
-}
-li
-{
-	padding-bottom: 3px;
-}
-.bold
-{
-	font-weight: bold;
+
+.preloader {
+	left: 50%;
+	margin: -10px 0 0 -25px;
+	position: fixed;
+	top: 50%;
 }
