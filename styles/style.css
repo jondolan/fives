@@ -1,17 +1,11 @@
-/* Font info */
-@font-face {
-	font-family: "Aharoni";
-	src: url("Aharoni.eot?") format("eot"), 
-	     url("Aharoni.woff") format("woff"), 
-	     url("Aharoni.ttf")  format("truetype"),
-	     url("Aharoni.svg#AharoniBold") format("svg");
-}
-/* Styles for the body */
+/* Font */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700,400);
 body
 {
-	background-color: #E9E9E9;
+    background: #E9E9E9 url("bg.png") left top repeat;
     color: black;
-	font-family: 'Aharoni';
+	font-family: 'Roboto Slab', serif;
+    font-weight: 400;
 	padding: 0;
 	margin: 0;
 	overflow-y: scroll; /* to make sure the layout is consistent */
@@ -55,10 +49,6 @@ p
 {
 	margin: 0px;
 }
-hr
-{
-	margin: 8px 0;
-}
 /* Header related style */
 #header
 {
@@ -69,15 +59,17 @@ hr
 	width: auto;
 	height: auto;
     font-size: 7em;
+    font-weight: 700;
 }
 #header p:first-child
 {
     margin: 0;
-	margin-bottom: -.2em;
+	line-height: 80%;
+    
 }
 #header p:last-child
 {
-	margin-bottom: 0;
+	line-height: 100%;
     float: right;
     font-size: .25em;
 }
@@ -165,31 +157,26 @@ hr
 	padding-bottom: 5px;
     height: auto;
 }
-#new-game p
+#mode-select
 {
 	margin-bottom: 10px;
-    
+    font-weight: 700;
 	font-size: 1.5em;
 }
 .new-game-buttons
 {
 	width: 230px;
-	height: 40px;
 	background-color: #8F6A45;
 	color: white;
 	padding: 20px;
     margin: 5px 0 5px 0;
-	border-radius: 5px;
-    display: inline-table;
+	border-radius: 3px;
+    display: inline-block;
     position: relative;
 }
 .new-game-buttons p
 {
-    display: table-cell; 
-    vertical-align: middle; 
-    text-align: center;
-    font-size: 1em !important;
-    margin: 0;
+    margin-bottom: 5px;
 }
 /* MultiGame styles */
 #type-word-p, .first-guess
@@ -216,8 +203,8 @@ hr
     float: left;
     text-align: center;
 	width: 12%;
-	padding-right: 1.5%;
-    padding-left: 5.5%;
+	padding-right: 1%;
+    padding-left: 6%;
 }
 .easy-word-col:nth-last-child(1)
 {
@@ -262,12 +249,12 @@ hr
 .word-row
 {
 	text-align: left;
-	height: 40px;
 	clear: both;
     padding: 0;
     margin: 0;
-    padding-top: 10px;
+    padding-bottom: 10px;
     overflow: hidden;
+    height: 1.3em;
 }
 .word-col
 {
@@ -296,7 +283,7 @@ hr
 	width: 18%;
 	padding-left: 1%;
 	position: relative;
-	top: .4em;
+	top: .5em;
 	text-align: center;
 }
 #rlwp, #rlrp
@@ -308,26 +295,22 @@ hr
 {
 	margin: 0;
     padding: 0;
-    position: relative;
-    top: -14px;
 }
 .guess-button
 {
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    position: relative;
-    top: -14px;
 }
 .bottom-guess-inputs
 {
+    margin-top: 10px;
     position: relative;
-    margin-top: 20px;
-    height: 20px;
+    line-height: 0;
 }
 .first-guess
 {
-    margin-bottom: -10px;
+    line-height: 85%;
 }
 /* Popup buttons */
 .center

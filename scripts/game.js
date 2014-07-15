@@ -847,6 +847,9 @@ $(document).ready(function () { // when the document is ready, check if the brow
                                         "Discard Game",
                                             "clearSave(); $('#popup').data('popup').close();"
                 )},
+                beforeOpen: function() {
+                    scrollToTop();
+                },
                 afterOpen: function() {
                     $(".popup_cont").draggable();
                 },
