@@ -1,5 +1,4 @@
 # Fives (Word Game)
-## By Jon Dolan
 
 Fives by Jon Dolan is a fun and entertaining word game available at http://fives.jondolan.me
 
