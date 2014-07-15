@@ -244,6 +244,7 @@ p
     bottom: 0;
     left: 8px;
     display: inherit;
+    font-size: .8em;
 }
 /* Word columns */
 .word-row
@@ -304,7 +305,6 @@ p
 }
 .bottom-guess-inputs
 {
-    margin-top: 10px;
     position: relative;
     line-height: 0;
 }
@@ -422,6 +422,10 @@ p
     #word-container
     {
         padding-top: 5px;
+    }
+    #time-bottom-guess-inputs
+    {
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 610px)
