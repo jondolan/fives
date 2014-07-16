@@ -901,27 +901,4 @@ $(document).ready(function () { // when the document is ready, check if the brow
             setCookie("cookietest", null, -1); // normal first time user perhaps!
     }    
     Hash.init(hashHandler, document.getElementById('hidden-iframe')); // setup the hash handler to do it's job
-    var $body = $('body'); //Cache this for performance
-
-    // http://stackoverflow.com/a/16159222
-    var defaultWidth = 1500;
-    var scaleFactor = 1;
-    var maxScale = 2;
-    var minScale = 0.8;
-    var $html = $("html");
-    var setHtmlScale = function() {
-        var scale = 1 + scaleFactor * ($html.width() - defaultWidth) / defaultWidth;
-        if (scale > maxScale) {
-            scale = maxScale;
-        }
-        else if (scale < minScale) {
-          scale = minScale;
-        }
-        $html.css('font-size', scale * 100 + '%');
-    };
-
-    $(window).resize(function() {
-        setHtmlScale();
-    });
-    setHtmlScale();
 });
