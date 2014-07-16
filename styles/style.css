@@ -52,7 +52,7 @@ p
 /* Header related style */
 #header
 {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	padding: 5px;
@@ -76,7 +76,8 @@ p
 /* Positioning the game board */
 #main
 {
-	width: 600px;
+	width: 60%;
+    min-width: 600px;
 	margin: 0 auto;
     overflow: hidden;
 }
@@ -90,7 +91,6 @@ p
     margin: 0 auto;
 	margin-bottom: 5px;
 	overflow: hidden;
-    
 	font-family: Tahoma, Geneva, sans-serif;
 }
 #word-container div:first-child
@@ -105,13 +105,11 @@ p
     margin-left: 1%;
 	overflow: hidden;
 	line-height: 90%;
-    
     text-align: center;
-    font-size: 5em;
-    
     color: black;
 	background-repeat: no-repeat;
 	border-bottom: 5px solid black;
+    font-size: 5em;
 }
 /* The actual game board */
 #game-container
@@ -121,13 +119,11 @@ p
     clear: both;
     padding: 5px;
 	margin: 0 auto 100px auto;
-
 	text-align: center;
-	font-size: 2.5em;
-    
 	background-color: #8F6A45;
 	color: black;
 	border-radius: 5px;
+    font-size: 3em;
 }
 /* All game type containers */
 .game-window
@@ -153,23 +149,23 @@ p
 /* The new game container */
 #new-game
 {
-    padding-top: 20px;
-	padding-bottom: 5px;
+    padding-top: 3%;
+	padding-bottom: 3%;
     height: auto;
 }
 #mode-select
 {
 	margin-bottom: 10px;
     font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1.1em;
 }
 .new-game-buttons
 {
-	width: 230px;
+	width: 35%;
 	background-color: #8F6A45;
 	color: white;
-	padding: 20px;
-    margin: 5px 0 5px 0;
+	padding: 5%;
+    margin: 1% 0.5% 1% 0.5%;
 	border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -179,14 +175,18 @@ p
     margin-bottom: 5px;
 }
 /* MultiGame styles */
-#type-word-p, .first-guess
+.first-guess
 {
-	font-size: .7em;
+	font-size: .7em; /* TODO */
+}
+#type-word-p
+{
+    margin-bottom: 10px;
 }
 .small-notice
 {
     margin-top: 2px;
-    font-size: .6em;
+    font-size: .6em; /*  TODO */
 }
 #multi-setup-wrapper input
 {
@@ -214,7 +214,6 @@ p
 .green, .yellow, .orange, .red
 {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-size: .95em;
     letter-spacing: 1px;
 }
 .green
@@ -260,9 +259,9 @@ p
 .word-col
 {
 	float: left;
-	width: 4%;
+	width: 6%;
 	text-align: center;
-	margin-right: 10%;
+	margin-right: 8%;
 }
 .reponse, .word-col, .word-row /* just to help with double clicking highlighting... */
 {
@@ -292,25 +291,23 @@ p
 	top: 0;
 }
 /* Input for guesses */
-.guess-input
-{
-	margin: 0;
-    padding: 0;
-}
-.guess-button
-{
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
 .bottom-guess-inputs
 {
     position: relative;
     line-height: 0;
 }
+.bottom-guess-inputs input
+{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: .4em;
+    max-width: 50%;
+}
 .first-guess
 {
     line-height: 85%;
+    margin-bottom: 15px;
 }
 /* Popup buttons */
 .center
@@ -352,6 +349,7 @@ p
     padding: 2%;
     margin: 15px auto;
     color: black;
+    line-height: 150%;
 }
 /* Draggable jQuery UI CSS */
 .ui-widget-overlay {
@@ -371,8 +369,8 @@ p
 	width: 95%;
 	margin: -85px auto 0 auto;
 	padding: 1%;
+    font-size: 1em;
 	text-align: left;
-	font-size: .9em;
 	font-family: Tahoma, Geneva, sans-serif;
 	padding-bottom: 75px;
     color: #3E3E3E;
@@ -392,16 +390,8 @@ p
 	padding-left: 5px;
 	clear:both;
 	font-family: Tahoma, Geneva, sans-serif;
-} 
-/* Styles for different screen size responsiveness */
-@media screen and (max-width: 1230px)
-{
-	#header
-	{
-		font-size: 6em;
-	}
 }
-@media screen and (max-width: 1120px)
+@media screen and (max-width: 1125px)
 {
     #header
 	{
@@ -409,23 +399,14 @@ p
 		margin-bottom: 0;
 		text-align: center;
         position: static;
-        font-size: 4em;
 	}
     #header p:last-child
     {
         float: none;
     }
-	.holder
-	{
-		font-size: 3.2em;
-	}
-    #word-container
+    #how-to-container
     {
-        padding-top: 5px;
-    }
-    #time-bottom-guess-inputs
-    {
-        margin-bottom: 10px;
+        font-size: 1.2em;
     }
 }
 @media screen and (max-width: 610px)
@@ -433,9 +414,18 @@ p
 	#main
 	{
 		width: 100%;
+        min-width: 100%;
 		padding: 0;
 		margin: 0 auto;
 	}
+    #word-container
+    {
+        padding-top: 5px;
+    }
+    #time-bottom-guess-inputs
+    {
+        margin-bottom: 15px;
+    }
     #new-game
     {
         padding-bottom: 20px;
@@ -443,30 +433,11 @@ p
 	.new-game-buttons
 	{
 		width: 60%;
+        font-size: .85em;
 	}
-	#new-game p:first-child
-	{
-		font-size: 1em;
-	}
-    #game-container
-    {
-        font-size: 2em;
-    }
-    #type-word-p
-    {
-        font-size: .6em;
-    }
 }
 @media screen and (max-width: 300px)
 {
-	body
-	{
-		font-size: .8em;
-	}
-	header
-	{
-		font-size: 1.4em;
-	}
 	#footer
 	{
 		height: 18px;

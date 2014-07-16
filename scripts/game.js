@@ -250,7 +250,7 @@ WordGame.prototype.guessFeedback = function (guess, animate) { // determines the
 };
 WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered guess in all games
     $("#" + game.gameName + "-game-wrapper").animate({
-        'height': ($("#" + game.gameName + "-game-wrapper").height() + $(".word-row").first().outerHeight()) + 'px'
+        'height': ($("#" + game.gameName + "-game-wrapper").height() + $(".word-row").first().outerHeight() + ((game.gameName == "time") ? 15 : 0)) + 'px'
     }, 750);
     $("#" + game.gameName + "-bottom-guess-inputs").animate({
             'bottom': '-' + $(".word-row").first().outerHeight() + 'px'
@@ -270,7 +270,7 @@ WordGame.prototype.animateToFirstguess = function () { // animate to the first g
         'padding-bottom': '20px'
     }, function() {
         $("#" + game.gameName + "-first-guess-wrapper").fadeIn().removeClass('hidden-game');
-        $("#" + this.gameName + "-game").css("height", "auto");
+        $("#" + game.gameName + "-game").css("height", "auto");
         $('#' + game.gameName + '-guess-input').focus();
     });
 };
@@ -297,7 +297,7 @@ WordGame.prototype.animateFromFirstGuess = function (rowToAdd) { // animate the 
                 $("#" + game.gameName + "-game-wrapper").fadeIn().removeClass('hidden-game');
                 $("#" + game.gameName + "-game").css("height", "auto");
                 $("#" + game.gameName + "-game-wrapper").css("height", "auto");
-                $('#' + game.gameName + '-guess-input').focus();
+                $('#' + game.gameName + '-guess-input').focus().attr('placeholder', ((game.maxGuesses - game.getNumberOfGuesses()) + ' guess' + ((game.getNumberOfGuesses() == 9) ? '' : 'es') + ' left'));
             });
         });
     });
@@ -305,6 +305,7 @@ WordGame.prototype.animateFromFirstGuess = function (rowToAdd) { // animate the 
 
 WordGame.prototype.gameWon = function () {
     window.onbeforeunload = null;
+    clearSave();
     if (game.guesses[game.getNumberOfGuesses()-1] == beach(game.getWord())) { // verify
         $('#popup').popup({
             content : function () {
@@ -322,7 +323,6 @@ WordGame.prototype.gameWon = function () {
                 $('#' + game.gameName + '-guess-input').blur();
             },
             afterClose: function() { // in case they didn't select either, or selected new game, regardless make a new game
-                clearSave();
                 location.reload();
             },
             afterOpen: function() {
@@ -388,10 +388,9 @@ WordGame.prototype.loadFromCookie = function () { // load a game from cookies
             'padding-top': '20px',
             'padding-bottom': '20px'
         }, function() {
-            $("#" + game.gameName + "-game-wrapper").fadeIn().removeClass('hidden-game');
+            $("#" + game.gameName + "-game-wrapper").fadeIn().removeClass('hidden-game').css("height", "auto");;
             $("#" + game.gameName + "-game").css("height", "auto");
-            $("#" + game.gameName + "-game-wrapper").css("height", "auto");
-            $('#' + game.gameName + '-guess-input').focus();
+            $('#' + game.gameName + '-guess-input').focus().attr('placeholder', ((game.maxGuesses - game.getNumberOfGuesses()) + ' guess' + ((game.getNumberOfGuesses() == 9) ? '' : 'es') + ' left'));
         });
     }
     cguesses = null;
@@ -514,12 +513,13 @@ MultiGame.prototype.selectWord = function() { // override the typical selecting 
     setup.setAttribute('class', 'hidden-game');
     
     var typewordMessage = document.createElement('div'); // instructions
-    typewordMessage.setAttribute('id', 'type-word-p');
+    typewordMessage.setAttribute('class', 'first-guess');
     typewordMessage.innerHTML = 'Word to be guessed:<p class = "small-notice">(will not be shown again)</p>';
     setup.appendChild(typewordMessage);
     
      
     var inputp = document.createElement('p'); // holder
+    inputp.setAttribute('class', 'bottom-guess-inputs');
     
     var inputField = document.createElement('input'); // textbox
     inputField.setAttribute('type', 'password');
@@ -534,7 +534,7 @@ MultiGame.prototype.selectWord = function() { // override the typical selecting 
     inputSubmit.setAttribute('type', 'submit');
     inputSubmit.setAttribute('class', 'button');
     inputSubmit.setAttribute('value', 'Play!');
-    inputSubmit.setAttribute('onclick', "game.submitMultiWord('multi-word-input');");
+    inputSubmit.setAttribute('onclick', "document.getElementById(game.gameName + '-word-input').removeAttribute('onkeyup'); game.submitMultiWord('multi-word-input');");
     inputp.appendChild(inputSubmit);
     
     setup.appendChild(inputp); // add it
@@ -570,6 +570,7 @@ MultiGame.prototype.submitMultiWord = function(elementID) { // submit the word t
         });
     }
     else { // word is invalid
+        document.getElementById(game.gameName + '-word-input').setAttribute('onkeyup', "submitForm(event, 'submit-multi-word');");
         var close;
         $('#popup').popup({ // create a popup to tell them it's invalid
             content : function () { 
@@ -705,9 +706,7 @@ $.fn.actualHeight = function(){ // determine the height of a hidden element
 };
 function submitForm(event, name) {  // submit the form by hitting enter
 	if (event.keyCode == 13)
-	{
 		document.getElementById(name).click();
-	}
 }
 var confirmOnPageExit = function (e) { // a popup message that lets the user know why reloading/leaving is bad!
     e = e || window.event;
@@ -902,5 +901,27 @@ $(document).ready(function () { // when the document is ready, check if the brow
             setCookie("cookietest", null, -1); // normal first time user perhaps!
     }    
     Hash.init(hashHandler, document.getElementById('hidden-iframe')); // setup the hash handler to do it's job
-});
+    var $body = $('body'); //Cache this for performance
 
+    // http://stackoverflow.com/a/16159222
+    var defaultWidth = 1500;
+    var scaleFactor = 1;
+    var maxScale = 2;
+    var minScale = 0.8;
+    var $html = $("html");
+    var setHtmlScale = function() {
+        var scale = 1 + scaleFactor * ($html.width() - defaultWidth) / defaultWidth;
+        if (scale > maxScale) {
+            scale = maxScale;
+        }
+        else if (scale < minScale) {
+          scale = minScale;
+        }
+        $html.css('font-size', scale * 100 + '%');
+    };
+
+    $(window).resize(function() {
+        setHtmlScale();
+    });
+    setHtmlScale();
+});
