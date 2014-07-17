@@ -250,7 +250,7 @@ WordGame.prototype.guessFeedback = function (guess, animate) { // determines the
 };
 WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered guess in all games
     $("#" + game.gameName + "-game-wrapper").animate({
-        'height': ($("#" + game.gameName + "-game-wrapper").height() + $(".word-row").first().outerHeight() + ((game.gameName == "time") ? 15 : 0)) + 'px'
+        'height': ($("#" + game.gameName + "-game-wrapper").height() + $(".word-row").first().outerHeight() + ((game.gameName == "time") ? parseInt($("#time-bottom-guess-inputs").css('margin-bottom')) : 0)) + 'px'
     }, 750);
     $("#" + game.gameName + "-bottom-guess-inputs").animate({
             'bottom': '-' + $(".word-row").first().outerHeight() + 'px'
@@ -270,7 +270,6 @@ WordGame.prototype.animateToFirstguess = function () { // animate to the first g
         'padding-bottom': '20px'
     }, function() {
         $("#" + game.gameName + "-first-guess-wrapper").fadeIn().removeClass('hidden-game');
-        $("#" + game.gameName + "-game").css("height", "auto");
         $('#' + game.gameName + '-guess-input').focus();
     });
 };
@@ -812,6 +811,7 @@ function scrollToTop() { // simple enough?
 }   
 
 $(document).ready(function () { // when the document is ready, check if the browser allows cookies and if the user has a previous game...returns false if there is no previous game
+    scrollToTop();
     var gameCookie = getCookie("game");
     if (gameCookie != "") // they have a previous game, ask to resume
     {
