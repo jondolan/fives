@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="fives.appcache">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="content-language" content="en">
@@ -15,8 +15,8 @@
         ga('create', 'UA-51448816-2', 'jondolan.me');
         ga('send', 'pageview');
 	</script>
-  	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel = "stylesheet" type = "text/css" href = "styles/style.min.css">
+  	<link rel = "icon" type="image/ico" href="favicon.ico">
+	<link rel = "stylesheet" type = "text/css" href = "styles/style.css">
     <script type = "text/javascript" src = "scripts/jquery-jqueryui-hash-timeago.min.js"></script>
     <script type = "text/javascript" src = "scripts/game.min.js"></script>
 </head>
@@ -24,7 +24,7 @@
 <div id = "wrap">
 <div id = "header">
 	<p>Fives</p>
-    <p>By Jon Dolan</p>
+    <p>A word strategy game</p>
 </div>
 <div id = "main">
 	<div id = "word-container">
@@ -35,6 +35,8 @@
 		<div class = "holder"></div>
 	</div>
 	<div id = "game-container">
+		<div id = "settings-button" onclick = "game.showSettings();"></div>
+        <div id = "font-size">Game font size: <span id = "decrease" onclick = "fontSizeChange(this)">A</span><span id = "increase" onclick = "fontSizeChange(this)">A</span></div>
 		<div id = "new-game" class = "game-window">
 			<p id = "mode-select">Select a mode</p>
             <div id = "button-container">
@@ -46,7 +48,7 @@
 		</div>
 	</div>
 	<div id = "how-to-container">
-		<h2>How to play</h2>
+		<h2>How to play Fives</h2>
 		<span class = "bold">Objective:</span> use 10 guesses to eliminate letters in order to determine the five letter word!
 		<br />
 		For each guess, the number of "right letters in the wrong place" (<span class = "bold">rlwp</span>) and "right letters in the right place" (<span class = "bold">rlrp</span>) are given.
@@ -75,12 +77,70 @@
 			
 		</ul>
         <br /><br />
-        <h4>Use of cookies</h4>
-        Fives uses <a href = "http://www.allaboutcookies.org/cookies/">cookies</a> to save your game as you progress so you can pick it up later. By clearing these cookies, you risk losing a game save. By using the game, you agree to allow cookies to be saved. Thank you.
+        <h4>Use of local storage to save games</h4>
+        Fives uses <a href = "http://www.techopedia.com/definition/27674/html5-local-storage">HTML5 local storage</a> to save your game as you progress so you can pick it up later. By clearing the cookies/site data for Fives, you will lose any gave saves.
+		<br />
+		In game, the option to save your game progress automatically can be changed from the default enabled state.
     </div>
 </div>
 </div>
 <div id = "footer">
+	<div id = "fives-revenue-container">
+		<style>
+		#fives-revenue-container
+		{
+			position: fixed;
+			width: 25%;
+			min-width: 164px;
+			height: 100%;
+			min-height: 600px;
+			right: 0;
+			top: 0;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+		.fives
+		{
+			width: 160px;
+			height: 600px;
+			margin: 0 auto;
+		}
+		@media screen and (max-width: 1217px)
+		{
+			#fives-revenue-container
+			{
+				width: 164px;
+			}
+		}
+		@media screen and (max-width: 925px)
+		{
+			#fives-revenue-container
+			{
+				position: static;
+				width: 300px;
+				height: 250px;
+				min-height: 0;
+				min-width: 0;
+				margin: 20px auto 0 auto;
+			}
+			.fives
+			{
+				width: 300px;
+				height: 250px;
+			}
+		}		
+		</style>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Fives -->
+		<ins class="adsbygoogle fives"
+			 style="display:inline-block"
+			 data-ad-client="ca-pub-6372308512760500"
+			 data-ad-slot="2965852475"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
 	<div id = "copyright">Copyright Jon Dolan 2014. <a href = "https://github.com/jondolan/fives/blob/gh-pages/LICENSE">License</a>     |     <a href ="changes">View recent changes or submit a bug</a></div>
 </div>
 <iframe id = "hidden-iframe" style = "display: none"></iframe> <!-- For hash tracking in old IE browsers -->	
