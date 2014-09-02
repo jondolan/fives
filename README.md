@@ -1,6 +1,6 @@
 # Fives (Word Game)
 
-Fives by Jon Dolan is a fun word game available at http://fives.jondolan.me
+Fives by Jon Dolan is a fun word game available at http://fiveswordgame.com
 
 ### Objective
 The objective of the game is to use 10 guesses to eliminate potential letters in search of the five letter word!
