@@ -1,28 +1,28 @@
 CACHE MANIFEST
 
-# v0.5, 9/1/14 21:00
+# v0.5, 9/3/14 18:15
 # change to game.min.js for production
 
 # HTML
-index.html
-favicon.ico
+#index.html
+#favicon.ico
 
 # CSS
-styles/style.css
+#styles/style.css
 
 # Bold font
-styles/robotoslab-bold-webfont.ttf
+#styles/robotoslab-bold-webfont.ttf
 # Regular font
-styles/robotoslab-regular-webfont.ttf
+#styles/robotoslab-regular-webfont.ttf
 
 # Images
-styles/settings.png
-styles/bg.png
+#styles/settings.png
+#styles/bg.png
 
 
 # Scripts
-scripts/game.min.js
-scripts/jquery-jqueryui-hash-timeago.min.js
+#scripts/game.min.js
+#scripts/jquery-jqueryui-hash-timeago.min.js
 
 
 # Allow getting files from network if available

@@ -85,11 +85,11 @@ WordGame.prototype.makeGameEl = function () { // make the game container element
 WordGame.prototype.addResponseTitles = function (wrap) { // add the rlwp and rlrp titles
     var rlrp = makeElement("span", {class: "response", id: "rlrp", title: "Right letter right place. A letter could be in the first position in both words, for example." });
     rlrp.innerHTML = 'rlrp';
-    wrap.insertBefore(rlrp, wrap.childNodes[0]);
+    $(wrap).prepend(rlrp);
 	
     var rlwp = makeElement("span", {class: "response", id: "rlwp", title: "Right letter wrong place. A letter could be in the first position in the word and the second position in the guess, for example."});
     rlwp.innerHTML = 'rlwp';
-    wrap.insertBefore(rlwp, wrap.childNodes[1]);
+    $(rlrp).before(rlwp);
 };
 WordGame.prototype.addInputs = function (wrap) { // add the bottom inputs
     var guessinputp = makeElement("p", {class: "bottom-guess-inputs", id: game.gameName + "-bottom-guess-inputs"}, wrap);
@@ -155,7 +155,7 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 			if (game.numberOfGuesses() == 1) {
 				game.addResponseTitles(game.gameContainer);
 				game.addInputs(game.gameContainer);
-				game.animateFromFirstGuess();
+				game.animateFromFirstGuess(rowToAdd);
 			}
 			else {
 				$(rowToAdd).addClass('hidden-game');
@@ -225,7 +225,6 @@ WordGame.prototype.guessFeedback = function (guess) { // determine the row's con
 	}
 	
 	game.wordRows.push(rowToAdd); // add it to the wordRows array
-	game.gameContainer.insertBefore(rowToAdd, game.gameContainer.childNodes[game.gameContainer.childNodes.length-1]); // append the row before the bottom inputs
 	
 	$( ".word-col" ).draggable({
 		helper: function(event) {
@@ -247,7 +246,8 @@ WordGame.prototype.extraEnterGuess = function () {
 };
 
 WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered guess in all games
-    $("#" + game.gameName + "-game-wrapper").animate({
+    $(rowToAdd).insertBefore(".bottom-guess-inputs"); // append the row before the bottom inputs
+	$("#" + game.gameName + "-game-wrapper").animate({
         'height': ($("#" + game.gameName + "-game-wrapper").height() + $(".word-row").first().outerHeight() + ((game.gameName == "time") ? parseInt($("#time-bottom-guess-inputs").css('margin-bottom')) : 0)) + 'px'
     }, 750);
     $("#" + game.gameName + "-bottom-guess-inputs").animate({
@@ -256,6 +256,7 @@ WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered gu
         $("#" + game.gameName + "-game-wrapper").css('height', 'auto');
         $(rowToAdd).fadeIn().removeClass('hidden-game');
         $("#" + game.gameName + "-bottom-guess-inputs").css("bottom", "0px");
+		game.focusInput();
     });
 };
 WordGame.prototype.animateToFirstguess = function () { // animate to the first guess input screen
@@ -268,12 +269,13 @@ WordGame.prototype.animateToFirstguess = function () { // animate to the first g
         game.focusInput();
     });
 };
-WordGame.prototype.animateFromFirstGuess = function () { // animate the first guess which is different because of the enter first guess screen
+WordGame.prototype.animateFromFirstGuess = function (rowToAdd) { // animate the first guess which is different because of the enter first guess screen
 	
 	$("#" + this.gameName + '-first-guess-wrapper').animate({
         'opacity': '0'
     }, function() {
         $("#" + game.gameName + '-first-guess-wrapper').remove();
+		$(rowToAdd).insertBefore(".bottom-guess-inputs"); // append the row before the bottom inputs
         $("#" + game.gameName + '-game').animate({
             'height': '0px',
             'padding-top': '0px',
@@ -614,6 +616,7 @@ WordGame.prototype.continueGame = function () {
 	game.addInputs(wrap);
 	for (var i = 0; i < game.numberOfGuesses(); i++) {
 		var temprow = game.guessFeedback(game.guesses[i]);
+		$(temprow).insertBefore(".bottom-guess-inputs"); // append the row before the bottom inputs
 	}
 	for (var i = 0; i < $(".holder").length; i++) {
 		$(".holder")[i].innerHTML = game.specialLetters['top'][i];
@@ -659,7 +662,6 @@ EasyGame.prototype.guessFeedback = function (guess) { // override the typical en
         }
     }
 	game.wordRows.push(rowToAdd); // add it to the wordRows array
-	game.gameContainer.insertBefore(rowToAdd, game.gameContainer.childNodes[game.gameContainer.childNodes.length-1]); // append the row before the bottom inputs	
 	
 	game.saveGame();
 	
