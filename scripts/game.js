@@ -208,16 +208,17 @@ WordGame.prototype.guessFeedback = function (guess) { // determine the row's con
 		var letter = guess.charAt(i); // get the specific letter we're talking about
 		rowToAdd.getElementsByClassName('word-col')[i].innerHTML = letter; // set the letter element to the letter
 		if (beach(game.getWord()).search(letter) != -1) { // if the letter is found
-			if (beach(game.getWord()).search(letter) == i) // if the letter is in the same index, right place
+			if (beach(game.getWord()).search(letter) == i) {// if the letter is in the same index, right place
 				rlrp++;
+				}
 			else // if not, wrong place
 				rlwp++;
 		}
 	}
 	
 	// feedback determined, so set them each
-	rowToAdd.getElementsByClassName('response')[0].innerHTML = rlrp; // rlrp
-	rowToAdd.getElementsByClassName('response')[1].innerHTML =  rlwp; // rlwp
+	rowToAdd.getElementsByClassName('response')[1].innerHTML = rlrp; // rlrp
+	rowToAdd.getElementsByClassName('response')[0].innerHTML =  rlwp; // rlwp
 
 	if (rlrp + rlwp == 0) { // if the setting to autored if 0 rl is enabled
 		for (var i = 0; i < rowToAdd.getElementsByClassName('word-col').length; i++)
