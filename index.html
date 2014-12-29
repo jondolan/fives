@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest = "fives.appcache">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="content-language" content="en">
@@ -43,7 +43,7 @@
 			<p id = "mode-select">Select a mode</p>
             <div id = "button-container">
                 <div class = "new-game-buttons" id = "easy-start-button"><p>Practice</p></div>
-                <div class = "new-game-buttons" id = "regular-start-button"><p>Classic&nbsp </p></div>
+                <div class = "new-game-buttons" id = "regular-start-button"><p>Classic&nbsp; </p></div>
                 <div class = "new-game-buttons" id = "time-start-button"><p>Time Trial</p></div>
                 <div class = "new-game-buttons" id = "multi-start-button"><p>Multiplayer</p></div>
             </div>
@@ -134,7 +134,6 @@
 		}		
 		</style>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Fives -->
 		<ins class="adsbygoogle fives"
 			 style="display:inline-block"
 			 data-ad-client="ca-pub-6372308512760500"
@@ -146,6 +145,11 @@
 	<div id = "copyright">Copyright Jon Dolan 2014. <a href = "https://github.com/jondolan/fives/blob/gh-pages/LICENSE">License</a>     |     <a href ="changes">View recent changes or submit a bug</a></div>
 </div>
 <iframe id = "hidden-iframe" style = "display: none"></iframe> <!-- For hash tracking in old IE browsers -->	
-<div id = "popup"></div>
+<div id = "hash-popup"></div>
+<div id = "continue-popup"></div>
+<div id = "invalid-popup"></div>
+<div id = "won-popup"></div>
+<div id = "lost-popup"></div>
+<div id = "settings-popup"></div>
 </body>
 </html>

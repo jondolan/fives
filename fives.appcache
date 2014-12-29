@@ -1,7 +1,10 @@
 CACHE MANIFEST
 
-# v0.5, 11/21/14 18:15
-# fix game.min.js
+# v0.6, 12/28/14 23:00
+# bug fixes:
+#  - Improved IE9 compatibility
+#  - Fixed dual popup bug leading to first popup not closing unless clicked outside of the area
+#  - Other minor stability enhancements
 
 # HTML
 #index.html
