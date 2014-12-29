@@ -136,11 +136,11 @@ WordGame.prototype.setupFirstGuess = function () { // set up the first guess scr
 
 
 WordGame.prototype.submitGuess = function () { // when a guess is submitted, check for validity and other things
-    game.extraEnterGuess();
 	var guessEl = document.getElementById(game.gameName + "-guess-input");
 	var guess = guessEl.value.toLowerCase();
 	var valid = game.isValidWord(guess);
 	if (valid == true) { // it's a valid guess
+		game.extraEnterGuess();
 		game.guesses.push(guess); // add it to the list of guesses
 		guessEl.placeholder = (game.maxGuesses - game.numberOfGuesses()) + ' guess' + ((game.numberOfGuesses() == 9) ? '' : 'es') + ' left'; // update the input placeholder
 		guessEl.value = ""; // empty the input
@@ -297,7 +297,10 @@ WordGame.prototype.expandContainer = function () { // expand the game container 
 		$("#" + game.gameName + "-game-wrapper").fadeIn().removeClass('hidden-game').css("height", "auto");
 		$("#" + game.gameName + "-game").css("height", "auto");
 		game.focusInput().attr('placeholder', ((game.maxGuesses - game.numberOfGuesses()) + ' guess' + ((game.numberOfGuesses() == 9) ? '' : 'es') + ' left'));
-		$("#font-size, #settings-button").fadeIn();
+		if (game.gameSettings.fontSize == true)
+			$("#font-size, #settings-button").fadeIn();
+		else
+			$("#settings-button").fadeIn();
 		game.focusInput();
 	});
 };
@@ -1015,7 +1018,7 @@ function canLocalStorage() {
 		return false;
 	}
 }
-function GameLoader () {
+function GameLoader() {
 	var previous = {};
 	try {
 		for (var i = 0; i < saveFields.length; i++) {

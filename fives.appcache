@@ -1,10 +1,12 @@
 CACHE MANIFEST
 
-# v0.6, 12/28/14 23:00
+# v0.6.1, 12/28/14 23:23
 # bug fixes:
 #  - Improved IE9 compatibility
 #  - Fixed dual popup bug leading to first popup not closing unless clicked outside of the area
 #  - Other minor stability enhancements
+#  - Fixed bug with showing the font size changer setting not being applied over page reload (font size itself is not preserved)
+#  - Fixed bug that starts timer after an incorrect first guess in time trial mode
 
 # HTML
 #index.html
