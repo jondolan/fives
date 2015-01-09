@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# v0.6.2, 01/08/15 23:23
+# v0.6.3, 01/08/15 23:40
 
 # Updates:
 
@@ -20,6 +20,9 @@ CACHE MANIFEST
 #  - Updated game instructions to improved clarity (I hope...)
 #  - Added iPhone web app compatibility so game can be played without internet at all!
 #  - Updated copyright for 2015 (yay!)
+
+# v0.6.3
+#  - Fixed (hopefully) iPhone webapp cache issue (that was non-existent on my local dev version)
 
 CACHE:
 # HTML
