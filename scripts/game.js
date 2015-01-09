@@ -1,4 +1,4 @@
-// By Jon Dolan, http://fives.jondolan.me , MIT License
+// By Jon Dolan, http://www.fiveswordgame.com , MIT License
 
 // A compilation of words
 // The large word list is used as a list of valid guesses as well as valid word inputs in MULTIPLAYER only
@@ -229,6 +229,15 @@ WordGame.prototype.guessFeedback = function (guess) { // determine the row's con
 	
 	game.wordRows.push(rowToAdd); // add it to the wordRows array
 	
+	game.updateColors();
+	
+	return rowToAdd;
+};
+WordGame.prototype.extraEnterGuess = function () {
+};
+
+WordGame.prototype.makeLettersDraggable = function () {
+console.log("drag");
 	$( ".word-col" ).draggable({
 		helper: function(event) {
 			var ret = $(this).clone().appendTo(game.gameEl);
@@ -240,14 +249,7 @@ WordGame.prototype.guessFeedback = function (guess) { // determine the row's con
 		},
 		distance: 20
 	}); // make sure the letters draggable
-	
-	game.updateColors();
-	
-	return rowToAdd;
 };
-WordGame.prototype.extraEnterGuess = function () {
-};
-
 WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered guess in all games
     $(rowToAdd).insertBefore(".bottom-guess-inputs"); // append the row before the bottom inputs
 	$("#" + game.gameName + "-game-wrapper").animate({
@@ -260,6 +262,7 @@ WordGame.prototype.animateGuess = function (rowToAdd) { // animate an entered gu
         $(rowToAdd).fadeIn().removeClass('hidden-game');
         $("#" + game.gameName + "-bottom-guess-inputs").css("bottom", "0px");
 		game.focusInput();
+		game.makeLettersDraggable();
     });
 };
 WordGame.prototype.animateToFirstguess = function () { // animate to the first guess input screen
@@ -285,6 +288,7 @@ WordGame.prototype.animateFromFirstGuess = function (rowToAdd) { // animate the 
             'padding-bottom': '0px'
         }, function() {
             game.expandContainer();
+			game.makeLettersDraggable();
         });
     });
 };
@@ -469,9 +473,9 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
     if (game.guesses[game.numberOfGuesses()-1] == beach(game.getWord())) { // verify
         $('#won-popup').popup({
             content : function () {
-                    var text = game.gameWonMessage() + " Play @FivesWordGame at http://fives.jondolan.me!";
+                    var text = game.gameWonMessage() + " Play @FivesWordGame at http://www.fiveswordgame.com";
                     return buildPopup(
-                                    "Congrats, you won!",
+                                    "You won, congrats!",
                                     "Do you want to tweet about your victory?<div class = 'popup-tweet'>" + text + "</div>",
                                     "Tweet it!",
                                         "clearSave(); location.href='https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "'",
@@ -627,6 +631,7 @@ WordGame.prototype.continueGame = function () {
 	for (var i = 0; i < $(".holder").length; i++) {
 		$(".holder")[i].innerHTML = game.specialLetters['top'][i];
 	}
+	game.makeLettersDraggable();
 	game.expandContainer();
 };
 
@@ -829,6 +834,8 @@ MultiGame.prototype.submitMultiWord = function() { // submit the word to be play
 function startGame (name, continuation) { // start the game, grow the corresponding game container, initiate various other features
     scrollToTop(); // scroll to the top of the document
 
+	clearSave(); // get rid of any previous leftover game saves since a new one is starting
+	
     /* Key bindings for clicking letters */
     $("#game-container").on('click', '.word-col', function(){game.highlightLetter(this);});
     
@@ -868,12 +875,10 @@ function startGame (name, continuation) { // start the game, grow the correspond
                     }, 750, function()
                     {
                         $("#new-game").remove();
-                            if (typeof continuation != "undefined") {
+                            if (typeof continuation != "undefined")
                                 game.setup(continuation);
-							}
-                            else {
+                            else
                                 game.setup();
-							}
                     });
                 }
             });
@@ -1055,6 +1060,9 @@ function GameLoader() {
 }
 
 $(document).ready(function () { // when the document is ready, check if the browser allows cookies and if the user has a previous game...returns false if there is no previous game	
+	
+	scrollToTop(); // scroll to the top of the document because sometimes the game leaves the user at the bottom of the page
+	
 	if (window.applicationCache) { // if applicationCache is defined
 		window.applicationCache.addEventListener('updateready', function(e) { // Check if a new cache is available on page load.
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY)
@@ -1089,7 +1097,6 @@ $(document).ready(function () { // when the document is ready, check if the brow
                 afterClose : function () {
                     if (typeof game == "undefined") {
                         enableClickButtons();
-						clearSave();
 					}
                 }
             }); 

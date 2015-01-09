@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html manifest = "fives.appcache">
+<html manifest = "fives.appcache" type="text/cache-manifest">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="content-language" content="en">
 	<meta name = "viewport" content = "user-scalable=no, width=device-width minimal-ui=1">
-	<meta name="description" content="Fives (Word Game) by Jon Dolan is a fun addicting guessing game!">
+	<meta name="description" content="Fives Word Game by Jon Dolan is a fun and addicting word strategy game!">
 	<meta name="keywords" content="fives, five, word, game">
+		
 	<title>Fives</title>
     <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -17,12 +18,21 @@
 	  ga('send', 'pageview');
 
 	</script>
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="styles/icon60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="styles/icon76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="styles/icon120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="styles/icon152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="styles/icon180.png">
+	
   	<link rel = "icon" type="image/ico" href="favicon.ico">
 	<link rel = "stylesheet" type = "text/css" href = "styles/style.css">
     <script type = "text/javascript" src = "scripts/jquery-jqueryui-hash-timeago.min.js"></script>
     <script type = "text/javascript" src = "scripts/game.min.js"></script>
 </head>
 <body>
+
 <div id = "wrap">
 <div id = "header">
 	<p>Fives</p>
@@ -51,10 +61,16 @@
 	</div>
 	<div id = "how-to-container">
 		<h2>How to play Fives</h2>
-		<span class = "bold">Objective:</span> use 10 guesses to eliminate letters in order to determine the five letter word!
+		<span class = "bold">Objective:</span> Strategically use 10 guesses, each a valid five letter word, to find eliminate letters in search of a five letter word.
 		<br />
 		For each guess, the number of "right letters in the wrong place" (<span class = "bold">rlwp</span>) and "right letters in the right place" (<span class = "bold">rlrp</span>) are given.
-		<br /><br />
+		<br />
+		<br /> 
+		A letter is <span class = "bold">rlrp</span> if it appears in the word you guessed and the word being guessed <span class = "bold">in the same spot</span> (for example, the word you've guessed and the word you're guessing both start with the letter "f").
+		<br />
+		A letter is <span class = "bold">rlwp</span> if it appears in both words, but <span class = "bold">in different spots</span> (for example, the word you've guessed starts with an "f", but the word you're guessing ends in an "f". Both words have an "f", but they appear in different spots in the words).
+		<br />
+		<br />
 		<span class = "bold">Example:</span> The word is "yield" and the guess is "tired". "e" appears in the word and the guess, but in different places, so rlwp is 1. "i" and "d" are in the same places in the word and the guess, so rlrp is 2. 
 		<br /><br /><br />
 		<span class = "bold">Practice (Easy) mode:</span>
@@ -142,7 +158,7 @@
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	</div>
-	<div id = "copyright">Copyright Jon Dolan 2014. <a href = "https://github.com/jondolan/fives/blob/gh-pages/LICENSE">License</a>     |     <a href ="changes">View recent changes or submit a bug</a></div>
+	<div id = "copyright">Copyright Jon Dolan 2014-2015. <a href = "https://github.com/jondolan/fives/blob/gh-pages/LICENSE">License</a>     |     <a href ="changes">View recent changes or submit a bug</a></div>
 </div>
 <iframe id = "hidden-iframe" style = "display: none"></iframe> <!-- For hash tracking in old IE browsers -->	
 <div id = "hash-popup"></div>

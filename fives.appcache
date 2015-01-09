@@ -1,33 +1,47 @@
 CACHE MANIFEST
 
-# v0.6.1, 12/28/14 23:23
-# bug fixes:
+# v0.6.2, 01/08/15 23:23
+
+# Updates:
+
+# v0.6.1
 #  - Improved IE9 compatibility
 #  - Fixed dual popup bug leading to first popup not closing unless clicked outside of the area
 #  - Other minor stability enhancements
 #  - Fixed bug with showing the font size changer setting not being applied over page reload (font size itself is not preserved)
 #  - Fixed bug that starts timer after an incorrect first guess in time trial mode
 
+# v0.6.2 
+#  - Fixed bug that does not allow most recent row's letters to be dragged (and introduced continued game rows not being able to drag, which was also fixed)
+#  - Fixed a bug that leaves the user at the bottom of the page after ending their previous game by scrolling up on page load
+#  - Changed the loading game popup - you have to hit "discard game" in order to clear the game, clicking on the outside of the popup no longer clears the game
+#  - Updated URL on end of game message
+#  - Code cleaning 
+#  - Updated game instructions to improved clarity (I hope...)
+#  - Added iPhone web app compatibility so game can be played without internet at all!
+#  - Updated copyright for 2015 (yay!)
+
+CACHE:
 # HTML
-#index.html
-#favicon.ico
+index.html
+favicon.ico
 
 # CSS
-#styles/style.css
+styles/style.css
 
 # Bold font
-#styles/robotoslab-bold-webfont.ttf
+styles/robotoslab-bold-webfont.ttf
 # Regular font
-#styles/robotoslab-regular-webfont.ttf
+styles/robotoslab-regular-webfont.ttf
 
 # Images
-#styles/settings.png
-#styles/bg.png
-
+styles/settings.png
+styles/bg.png
 
 # Scripts
-#scripts/game.min.js
-#scripts/jquery-jqueryui-hash-timeago.min.js
+scripts/game.min.js
+scripts/jquery-jqueryui-hash-timeago.min.js
+
 
 
 # Allow getting files from network if available
