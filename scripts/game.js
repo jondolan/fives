@@ -9,7 +9,8 @@ var largeWordList = ["abets","abhor","abide","abies","abled","abler","ables","ab
 var smallWordList = ["abhor","abide","abode","abort","about","above","abuse","acorn","acrid","actor","acute","adept","adieu","adios","admit","adobe","adopt","adore","adorn","adult","afire","afoul","after","agent","agile","aglow","agony","aisle","album","alert","alien","align","alike","alive","aloft","alone","along","aloud","alter","amber","amble","amend","amigo","among","ample","amuck","amuse","angel","anger","angle","angry","ankle","anode","antic","apron","argon","argue","arise","armed","arose","arson","ashen","aside","askew","aster","astir","atone","audio","audit","auger","aught","avert","avoid","awful","awoke","bacon","badge","badly","bagel","baker","balmy","bangs","banjo","barge","baron","basic","basil","basin","batch","bated","bathe","baton","beach","beady","beard","beast","befit","began","begin","begot","begun","being","belay","belch","below","bench","biker","bilge","binge","bingo","biped","birch","birth","bison","black","blade","blame","bland","blank","blare","blase","blast","blaze","bleak","bleat","blend","blimp","blind","blink","blitz","bloat","block","blond","blown","blues","blunt","blurt","blush","board","boast","bogey","bogus","bonus","borax","borne","botch","bough","bound","bower","boxer","brace","bract","braid","brain","brake","brand","brash","brave","bravo","brawl","brawn","bread","break","brick","bride","brief","brine","bring","brink","briny","brisk","broad","broil","broke","broth","brown","bruin","brunt","brush","brute","budge","bugle","build","built","bulge","bulgy","bulky","bumpy","bunch","burly","burnt","burst","bushy","butch","buyer","bylaw","cabin","cable","cadet","cadge","cadre","cagey","cairn","calve","calyx","camel","cameo","campy","candy","canoe","caper","capon","caret","cargo","carol","carom","carve","caste","cater","caulk","cause","cavil","cedar","chafe","chain","chair","chalk","champ","chant","chaos","chaps","charm","chart","chary","chase","chasm","cheap","cheat","chest","chewy","chide","chief","child","chime","chimp","china","chirp","chive","choir","choke","chomp","chops","chord","chore","chose","chump","chunk","churl","churn","chute","cider","cigar","civet","claim","clamp","clang","clank","clash","clasp","clean","clear","cleat","cleft","clerk","climb","clime","cling","clink","cloak","clomp","clone","close","cloth","cloud","clout","clove","clown","clump","clung","clunk","coast","cobra","codex","comet","comfy","conga","copra","copse","coral","corny","corps","cough","could","count","court","cover","covet","covey","cower","craft","cramp","crane","crank","craps","crash","crate","crave","crawl","craze","crazy","creak","cream","crept","crest","cried","crime","crimp","crisp","croak","croup","crowd","crown","crude","cruel","crumb","crush","crust","crypt","cubit","curie","curio","curly","curse","curve","curvy","cushy","daily","dairy","daisy","dance","datum","daunt","davit","dealt","death","debar","debit","debug","debut","decaf","decal","decay","decor","decoy","decry","deify","deign","deity","delay","delta","demon","demur","denim","depot","depth","derby","devil","diary","diner","dingo","dingy","dinky","dirty","disco","ditch","dogma","doily","doing","dopey","doubt","dough","douse","dowel","downy","dowry","dozen","draft","drain","drake","drank","drape","drawl","drawn","dream","dregs","drift","drink","drive","drone","drove","drown","drunk","dumps","dumpy","dunce","dusky","dusty","dwarf","dwelt","dying","early","earth","edict","edify","eight","elbow","elfin","empty","enact","endow","enjoy","entry","envoy","epoch","epoxy","equal","equip","erupt","ethic","ethos","evict","exact","exalt","exist","extol","extra","exult","fable","facet","faint","fairy","faith","fakir","false","fancy","farce","fated","fault","favor","feast","feign","feint","felon","femur","feral","fetch","fiber","fiche","field","fiend","fiery","fight","filch","filet","filmy","filth","final","finch","first","firth","fishy","fixed","flair","flake","flaky","flame","flank","flare","flash","flask","fleck","flesh","flick","flier","fling","flint","flirt","float","flock","flora","flour","flout","flown","fluid","fluke","fluky","flung","flunk","flush","flute","foamy","focal","focus","foist","foray","force","forge","forte","forth","forty","forum","found","fount","foyer","frail","frame","franc","frank","fraud","freak","fresh","fried","frisk","frock","frond","front","frost","froth","frown","froze","fruit","fudge","fungi","funky","fusty","futon","gable","gaily","gamin","gamut","gaunt","gauze","gauzy","gavel","gawky","genus","getup","ghost","ghoul","giant","gimpy","girth","given","gizmo","glade","gland","glare","glaze","gleam","glean","glide","glint","gloat","globe","glory","glove","gluey","gnash","gnome","godly","gofer","gonad","goner","gorse","gourd","gouty","grace","grade","graft","grain","grand","grant","grape","graph","grasp","grate","grave","gravy","graze","great","grief","grime","grimy","grind","gripe","grist","grits","groan","groin","grope","group","grove","growl","grown","gruel","grunt","guard","guest","guide","guild","guile","guilt","guise","gulch","gumbo","gushy","gusto","gusty","gutsy","habit","haiku","hairy","halve","handy","hardy","harpy","haste","hasty","haunt","haven","havoc","hazel","heady","heard","heart","heavy","hefty","heist","helix","heron","hertz","hinge","hives","hoard","hoary","hogan","hoist","hokey","homer","homey","honey","horde","horny","horse","hotel","hotly","hound","house","hover","howdy","human","humid","humor","husky","hydra","hyena","hyper","ideal","image","imply","incur","index","inept","inert","infer","ingot","inlay","inlet","input","inset","inter","irate","irony","islet","itchy","ivory","jaunt","jeans","jerky","joint","joist","joker","joule","joust","judge","juice","juicy","jumbo","jumpy","klutz","knave","knead","knelt","knife","kudos","labor","laden","lager","laity","lance","lanky","lapse","larch","large","largo","laser","latch","latex","lathe","laugh","layer","leach","leafy","leaky","learn","leash","least","lefty","legit","lemon","lemur","letup","lifer","light","liken","limbo","liner","lingo","links","liter","liven","liver","lives","loamy","loath","locus","lodge","lofty","logic","loner","lotus","louse","lousy","lover","lower","lucid","lucky","lucre","lumpy","lunar","lunch","lunge","lurch","lurid","lusty","lying","lymph","lynch","lyric","magic","maize","major","maker","mange","mango","mangy","manic","manly","manor","manse","maple","march","marsh","mason","match","mauve","maven","maybe","mayor","mealy","means","meant","meaty","medal","media","medic","melon","mercy","merit","metal","metro","midge","midst","might","milky","mince","miner","minor","minty","minus","mirth","miser","misty","miter","mixed","mixer","mocha","modal","model","mogul","moist","molar","moldy","money","month","moped","moral","mores","mosey","motel","motif","mound","mount","mourn","mouse","mousy","mouth","mover","movie","mucky","mulch","munch","mural","murky","mushy","music","musky","musty","naive","naked","nasty","navel","neigh","nerdy","nervy","newly","newsy","nexus","niche","nifty","night","noble","noise","noisy","nomad","north","notch","noted","novel","noway","nudge","nurse","nymph","oaken","ocean","ocher","odium","often","olden","oldie","olive","omega","onset","opera","opine","opium","optic","orbit","organ","other","ought","ounce","outer","outre","overt","owing","owner","oxide","pager","paint","palmy","palsy","panel","panic","pansy","pants","parch","parse","party","paste","pasty","patch","patio","patsy","pause","peach","pearl","pecan","pedal","penal","peony","perch","peril","perky","pesky","petal","phase","phial","phone","phony","piano","picky","piety","pilaf","piles","pilot","pinch","pinto","pious","pique","pitch","pithy","pivot","pixel","place","plaid","plain","plait","plane","plank","plant","plate","plead","pleat","pluck","plumb","plume","plunk","plush","poach","poesy","point","poise","poker","polar","porch","poser","posit","pouch","pound","power","prank","prate","prawn","price","prick","pride","prime","print","prism","privy","prize","probe","prone","prong","prose","proud","prove","prowl","proxy","prude","prune","psalm","psych","pubic","pudgy","pulse","punch","purge","purse","pushy","pylon","quack","quail","quake","quark","quart","quash","quasi","query","quest","quick","quiet","quilt","quirk","quite","quits","quota","quote","rabid","radio","radon","rainy","raise","ranch","range","rangy","rapid","raspy","ratio","ravel","raven","reach","react","ready","realm","rebus","rebut","recap","refit","regal","rehab","reign","relax","relay","relic","remit","repay","reply","resin","rhino","rhyme","ridge","rifle","right","rinse","ripen","risen","risky","ritzy","rival","riven","rivet","roach","roast","robin","rocky","rogue","rosin","rouge","rough","round","rouse","route","rowdy","royal","rugby","rumba","rusty","saber","sable","saint","salon","salty","salve","salvo","sandy","satin","sauce","saucy","saute","savor","scald","scale","scalp","scaly","scamp","scant","scare","scarf","scary","scent","scion","scold","scone","scope","score","scorn","scour","scout","scowl","scram","scrap","screw","scrip","scrub","scuba","seamy","sedan","sepal","sepia","serum","setup","shack","shade","shady","shaft","shake","shaky","shale","shalt","shame","shank","shape","shard","share","shark","sharp","shave","shawl","sheaf","shear","shelf","shift","shine","shiny","shire","shirk","shirt","shock","shone","shore","short","shout","shove","shown","showy","shred","shrew","shrub","shrug","shuck","shunt","sight","silky","since","singe","siren","sixth","sixty","skate","skein","skimp","skirt","slack","slain","slake","slang","slant","slate","slave","slept","slice","slick","slide","slime","slimy","sling","slink","slope","sloth","slump","slung","slunk","slurp","smack","smart","smear","smelt","smile","smirk","smite","smith","smock","smoke","smoky","smote","snack","snail","snake","snaky","snare","snarl","sneak","snide","snipe","snore","snort","snout","snowy","soapy","sober","softy","solar","solid","solve","sonar","sonic","sound","soupy","south","space","spade","spare","spark","spate","spawn","speak","spear","speck","spend","spent","spice","spicy","spiel","spike","spiky","spine","spiny","spire","spite","splat","splay","split","spoil","spoke","spore","sport","spout","spray","spurn","spurt","squad","squat","squid","stack","stage","staid","stain","stair","stake","stale","stalk","stamp","stand","stank","staph","stare","stark","stave","stead","steak","steal","steam","stern","stick","stile","sting","stink","stock","stoic","stoke","stole","stomp","stone","stony","store","stork","storm","story","stove","strap","straw","stray","strew","strip","strop","strum","stuck","study","stump","stung","stunk","style","styli","suave","sugar","suite","sulky","sumac","super","surge","surly","swain","swami","swamp","swank","sward","swarm","swath","swear","sweat","swept","swift","swine","swing","swipe","swirl","sword","swore","sworn","swung","syrup","table","tacky","taken","taker","talon","tango","tangy","taper","tapir","tardy","taupe","tawny","teach","tempo","tenor","tepid","thank","their","thick","thief","thine","thing","think","third","thorn","those","threw","throb","throw","thrum","thumb","thump","thyme","tidal","tiger","tilde","timer","times","tinge","tipsy","tired","toady","today","token","tonal","tongs","tonic","topaz","topic","torch","touch","tough","towel","tower","toxic","toxin","trace","track","trade","trail","train","trash","trawl","tread","trend","triad","trial","tribe","trice","trick","tried","tripe","truce","truck","truly","trump","trunk","tuber","tulip","tumor","tuner","tunic","twain","twang","tweak","twerp","twice","twine","twirl","tying","ulcer","ultra","umber","unbar","uncle","under","unfit","unify","unite","unity","untie","until","unzip","upend","upset","urban","usage","usher","vague","valet","valid","valor","value","vapid","vapor","vault","venal","venom","vetch","viand","vibes","video","vigor","vinyl","viola","viper","viral","vireo","virus","visor","vista","vital","vocal","vogue","voice","vomit","voter","vouch","vowel","vying","wacky","wader","wafer","wager","wagon","waist","waive","waken","waltz","warty","waste","watch","water","waver","waxen","weary","weigh","weird","wench","whack","whale","wharf","wheat","whelk","whelp","while","whine","whiny","whirl","whisk","whist","white","whole","whose","widen","width","wield","wimpy","wince","winch","windy","wired","wispy","witch","wives","woken","woman","women","wordy","world","wormy","worse","worst","worth","would","wound","woven","wrack","wrath","wreak","wreck","wrest","wring","wrist","write","wrong","wrote","wrung","yacht","yearn","yeast","yield","yodel","young","yours","youth","zebra","zilch","zonal"];
 
 var game, 
-    saveFields = ["fancyName", "word", "guesses", "letterColors", "specialLetters", "gameSettings"];
+    saveFields = ["fancyName", "word", "guesses", "letterColors", "specialLetters", "gameSettings"],
+	previousExists = false;
 
 function WordGame(name) { // create generic Game class, these vars are all self explanatory
     this.reloadMessage = 'Progress will be saved if you leave or reload the game';
@@ -123,7 +124,7 @@ WordGame.prototype.extraSetup = function () { // nothing to see here, just compe
 };
 WordGame.prototype.setupFirstGuess = function () { // set up the first guess screen, works for all games just happens later for MultiGame
 	var firstguesswrapper = makeElement("div", {id: this.gameName + "-first-guess-wrapper", class: "first-guess-wrapper hidden-game"}, game.gameEl);
-    
+	
     var firstguess = makeElement("p", {class: "first-guess", id: this.gameName + "-first-guess"}, firstguesswrapper);
     if (this.gameName == 'time')
         firstguess.innerHTML = 'First guess:<p class = "small-notice">(Timer starts after you submit)</p>';
@@ -141,7 +142,12 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 	var valid = game.isValidWord(guess);
 	if (valid == true) { // it's a valid guess
 		game.extraEnterGuess();
+		
 		game.guesses.push(guess); // add it to the list of guesses
+		
+		if (typeof ga != "undefined") // send a guess event if ga is defined
+			ga('send', 'event', 'game', 'guess', guess);
+	
 		guessEl.placeholder = (game.maxGuesses - game.numberOfGuesses()) + ' guess' + ((game.numberOfGuesses() == 9) ? '' : 'es') + ' left'; // update the input placeholder
 		guessEl.value = ""; // empty the input
 		if (beach(game.getWord()) == guess) // if the guess is correct
@@ -154,6 +160,9 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 			var rowToAdd = game.guessFeedback(guess);
 			
 			if (game.numberOfGuesses() == 1) {
+				if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
+					ga('send', 'event', 'game', 'play', game.gameName);
+				
 				game.addResponseTitles(game.gameContainer);
 				game.addInputs(game.gameContainer);
 				game.animateFromFirstGuess(rowToAdd);
@@ -237,7 +246,6 @@ WordGame.prototype.extraEnterGuess = function () {
 };
 
 WordGame.prototype.makeLettersDraggable = function () {
-console.log("drag");
 	$( ".word-col" ).draggable({
 		helper: function(event) {
 			var ret = $(this).clone().appendTo(game.gameEl);
@@ -470,6 +478,10 @@ WordGame.prototype.removeColors = function (el) { // expects jQuery-ified elemen
 WordGame.prototype.gameWon = function () { // popup telling player game is won!
     window.onbeforeunload = null;
     clearSave();
+	
+	if (typeof ga != "undefined") // send a win event if ga is defined
+		ga('send', 'event', 'game', 'win', game.numberOfGuesses());
+		
     if (game.guesses[game.numberOfGuesses()-1] == beach(game.getWord())) { // verify
         $('#won-popup').popup({
             content : function () {
@@ -501,6 +513,10 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
         return "haven't won yet :P";
 };
 WordGame.prototype.gameLost = function () { // popup telling them the game is over
+	
+	if (typeof ga != "undefined") // send a loss event if ga is defined
+		ga('send', 'event', 'game', 'loss', game.numberOfGuesses());
+	
 	$('#lost-popup').popup({ // create a popup
 		content : function () { 
 				return buildPopup(
@@ -618,6 +634,10 @@ function clearSave () { // clears a game cookie
 		var settings = localStorage.getItem(waves("gameSettings"));
 		localStorage.clear();
 		localStorage.setItem(waves("gameSettings"), settings);
+		if (previousExists != false) {
+			if (typeof ga != "undefined") // send a loss event if ga is defined
+				ga('send', 'event', 'game', 'loss', previousExists);
+		}
 	}
 };
 WordGame.prototype.continueGame = function () {
@@ -851,9 +871,6 @@ function startGame (name, continuation) { // start the game, grow the correspond
         game = new TimeGame();
        
     var element = document.getElementById(game.gameName + '-start-button'); // get the element that was clicked
-    
-    if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
-        ga('send', 'event', 'game', 'play', game.gameName);
         
     $("#how-to-container").fadeOut(1000); // fade out the how-to
     
@@ -1062,13 +1079,13 @@ function GameLoader() {
 $(document).ready(function () { // when the document is ready, check if the browser allows cookies and if the user has a previous game...returns false if there is no previous game	
 	
 	scrollToTop(); // scroll to the top of the document because sometimes the game leaves the user at the bottom of the page
-	
+
 	if (window.applicationCache) { // if applicationCache is defined
 		window.applicationCache.addEventListener('updateready', function(e) { // Check if a new cache is available on page load.
-			if (window.applicationCache.status == window.applicationCache.UPDATEREADY)
-				window.location.reload();
+			window.location.reload();
 		}, false);
 	}
+	
 	
 	Hash.init(hashHandler, document.getElementById('hidden-iframe')); // setup the hash handler to do it's job
 
@@ -1076,15 +1093,16 @@ $(document).ready(function () { // when the document is ready, check if the brow
 		var previous = GameLoader();
 		//console.log(previous);
 		if (previous != 0 && typeof previous != "undefined") {
+			previousExists = previous.guesses.length;
 			$('#continue-popup').popup({ // create a popup to ask if they want to resume
-                content : function () { 
+                content : function () {
                         return buildPopup(
                                         "Continue your last game?",
                                         "You have a saved " + previous.fancyName + " game from " + $.timeago(previous.time) + ".<br />You were on your " + (previous.guesses.length+1) + ((previous.guesses.length+1 == 1) ? "st" : (previous.guesses.length+1 == 2) ? "nd": (previous.guesses.length+1 == 3) ? "rd" : "th") + " guess.<br />Do you want to continue that game?",
                                         "Continue",
-                                            "$('#continue-popup').data('popup').close(); startGame('" + previous.fancyName + "', " + JSON.stringify(previous) + ");",
+                                            "$('#continue-popup').data('popup').close(); previousExists = false; if (typeof ga != 'undefined'){ ga('send', 'event', 'game', 'continue', " + previous.guesses.length + "); } startGame('" + previous.fancyName + "', " + JSON.stringify(previous) + ");",
                                         "Discard Game",
-                                            "clearSave(); $('#continue-popup').data('popup').close();"
+                                            "clearSave(); previousExists = false; $('#continue-popup').data('popup').close();"
                 )},
                 beforeOpen: function() {
                     scrollToTop();
@@ -1095,12 +1113,11 @@ $(document).ready(function () { // when the document is ready, check if the brow
                     });
                 },
                 afterClose : function () {
-                    if (typeof game == "undefined") {
+                    if (typeof game == "undefined")
                         enableClickButtons();
-					}
                 }
-            }); 
-            setTimeout("$('#continue-popup').data('popup').open();", 500);
+            });
+			setTimeout("$('#continue-popup').data('popup').open();", 500);
 		}
 		else {
 			enableClickButtons();
