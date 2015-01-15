@@ -1082,7 +1082,8 @@ $(document).ready(function () { // when the document is ready, check if the brow
 
 	if (window.applicationCache) { // if applicationCache is defined
 		window.applicationCache.addEventListener('updateready', function(e) { // Check if a new cache is available on page load.
-			window.location.reload();
+			if (window.applicationCache.status == window.applicationCache.UPDATEREADY)
+				window.location.reload();
 		}, false);
 	}
 	
@@ -1119,12 +1120,9 @@ $(document).ready(function () { // when the document is ready, check if the brow
             });
 			setTimeout("$('#continue-popup').data('popup').open();", 500);
 		}
-		else {
+		else
 			enableClickButtons();
-			//clearSave();
-		}
 	}
-	else {
+	else
 		enableClickButtons();
-	}
 });
