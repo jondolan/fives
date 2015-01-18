@@ -41,6 +41,23 @@ WordGame.prototype.numberOfGuesses = function () { // create generic guess numbe
     return this.guesses.length;
 };
 
+WordGame.prototype.GASendGuess = function (guess) {
+	if (typeof ga != "undefined") // send a guess event if ga is defined
+			ga('send', 'event', 'game', 'guess', guess);
+};
+WordGame.prototype.GASendPlay = function () {
+	if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
+		ga('send', 'event', 'game', 'play', game.gameName);
+};
+WordGame.prototype.GASendLoss = function () {
+	if (typeof ga != "undefined") // send a loss event if ga is defined
+		ga('send', 'event', 'game', 'loss', game.numberOfGuesses());
+};
+WordGame.prototype.GASendWin = function () {
+	if (typeof ga != "undefined") // send a win event if ga is defined
+		ga('send', 'event', 'game', 'win', game.numberOfGuesses());
+};
+
 WordGame.prototype.focusInput = function () { // small helper to focus the input easier
 	$("#" + game.gameName + "-guess-input").focus();
 	return $("#" + game.gameName + "-guess-input");
@@ -145,8 +162,7 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 		
 		game.guesses.push(guess); // add it to the list of guesses
 		
-		if (typeof ga != "undefined") // send a guess event if ga is defined
-			ga('send', 'event', 'game', 'guess', guess);
+		game.GASendGuess(guess);
 	
 		guessEl.placeholder = (game.maxGuesses - game.numberOfGuesses()) + ' guess' + ((game.numberOfGuesses() == 9) ? '' : 'es') + ' left'; // update the input placeholder
 		guessEl.value = ""; // empty the input
@@ -160,8 +176,7 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 			var rowToAdd = game.guessFeedback(guess);
 			
 			if (game.numberOfGuesses() == 1) {
-				if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
-					ga('send', 'event', 'game', 'play', game.gameName);
+				game.GASendPlay();
 				
 				game.addResponseTitles(game.gameContainer);
 				game.addInputs(game.gameContainer);
@@ -479,8 +494,7 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
     window.onbeforeunload = null;
     clearSave();
 	
-	if (typeof ga != "undefined") // send a win event if ga is defined
-		ga('send', 'event', 'game', 'win', game.numberOfGuesses());
+	game.GASendWin();
 		
     if (game.guesses[game.numberOfGuesses()-1] == beach(game.getWord())) { // verify
         $('#won-popup').popup({
@@ -513,9 +527,10 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
         return "haven't won yet :P";
 };
 WordGame.prototype.gameLost = function () { // popup telling them the game is over
+	if (game.name == "time")
+		window.removeEventListener('unload', game.GASendLoss); 
 	
-	if (typeof ga != "undefined") // send a loss event if ga is defined
-		ga('send', 'event', 'game', 'loss', game.numberOfGuesses());
+	game.GASendLoss();
 	
 	$('#lost-popup').popup({ // create a popup
 		content : function () { 
@@ -634,10 +649,8 @@ function clearSave () { // clears a game cookie
 		var settings = localStorage.getItem(waves("gameSettings"));
 		localStorage.clear();
 		localStorage.setItem(waves("gameSettings"), settings);
-		if (previousExists != false) {
-			if (typeof ga != "undefined") // send a loss event if ga is defined
-				ga('send', 'event', 'game', 'loss', previousExists);
-		}
+		if (previousExists != false)
+			game.GASendLoss();
 	}
 };
 WordGame.prototype.continueGame = function () {
@@ -710,6 +723,7 @@ function TimeGame(word) {// create more specific TimeGame class
     this.base('time');
     this.maxGuesses = 15;
     this.reloadMessage = "Progress will be LOST if you leave or reload the game!";
+	window.addEventListener('unload', this.GASendLoss);
 };
 TimeGame.prototype = new WordGame; // set the inheritance chain
 TimeGame.prototype.extraSetup = function () { // add a time element
@@ -757,6 +771,7 @@ function updateTimer() { // interval to update the timer every one second
 }
 TimeGame.prototype.gameWonMessage = function () {
     clearInterval(game.gameInterval);
+	window.removeEventListener('unload', game.GASendLoss);
     return "I won a #Fives \"" + game.fancyName + "\" game in " + ((game.timerMins == 0) ? "" : (game.timerMins + " " + (((game.timerMins == 1) ? "minute" : "minutes") + " and "))) + game.timerSecs + " " + ((game.timerSecs == 1) ? "second" : "seconds") + "! The word was " + beach(game.getWord()) + ".";    
 };
 TimeGame.prototype.saveGame = function () { // do nothing, no saving, that would be cheating time
@@ -954,9 +969,7 @@ var confirmOnPageExit = function (e) { // a popup message that lets the user kno
     e = e || window.event;
     var message = game.reloadMessage;
     if (e) 
-    {
         e.returnValue = message;
-    }
     return message;
 };
 function enableClickButtons() { // enable the big buttons to start a game (disabled at first because of cookie popup)
