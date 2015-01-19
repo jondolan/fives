@@ -46,7 +46,7 @@ function GASendGuess(guess) {
 }
 function GASendPlay() {
 	if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
-		ga('send', 'event', game.gameName, 'play');
+		ga('send', 'event', game.gameName, 'play', game.gameName);
 }
 function GASendLoss(name, num) {
 	if (!num)
