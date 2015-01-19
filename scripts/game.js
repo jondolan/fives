@@ -40,23 +40,30 @@ WordGame.prototype.getWord = function () { // create generic word getter
 WordGame.prototype.numberOfGuesses = function () { // create generic guess number getter
     return this.guesses.length;
 };
-
-WordGame.prototype.GASendGuess = function (guess) {
+function GASendGuess(guess) {
 	if (typeof ga != "undefined") // send a guess event if ga is defined
-			ga('send', 'event', 'game', 'guess', guess);
-};
-WordGame.prototype.GASendPlay = function () {
+		ga('send', 'event', game.gameName, 'guess', guess);
+}
+function GASendPlay() {
 	if (typeof ga != "undefined" && typeof continuation == "undefined") // send a play event if ga is defined
-		ga('send', 'event', 'game', 'play', game.gameName);
-};
-WordGame.prototype.GASendLoss = function () {
+		ga('send', 'event', game.gameName, 'play');
+}
+function GASendLoss(name, num) {
+	if (!num)
+		var num = game.numberOfGuesses();
+	if (!name || name == window.event)
+		var name = game.gameName;
 	if (typeof ga != "undefined") // send a loss event if ga is defined
-		ga('send', 'event', 'game', 'loss', game.numberOfGuesses());
-};
-WordGame.prototype.GASendWin = function () {
+		ga('send', 'event', name, 'loss', num);
+}
+function GASendWin(num) {
 	if (typeof ga != "undefined") // send a win event if ga is defined
-		ga('send', 'event', 'game', 'win', game.numberOfGuesses());
-};
+		ga('send', 'event', game.gameName, 'win', game.numberOfGuesses());
+}
+function GASendContinue(num) {
+	if (typeof ga != 'undefined')
+		ga('send', 'event', game.gameName, 'continue', num);
+}
 
 WordGame.prototype.focusInput = function () { // small helper to focus the input easier
 	$("#" + game.gameName + "-guess-input").focus();
@@ -162,7 +169,7 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 		
 		game.guesses.push(guess); // add it to the list of guesses
 		
-		game.GASendGuess(guess);
+		GASendGuess(guess);
 	
 		guessEl.placeholder = (game.maxGuesses - game.numberOfGuesses()) + ' guess' + ((game.numberOfGuesses() == 9) ? '' : 'es') + ' left'; // update the input placeholder
 		guessEl.value = ""; // empty the input
@@ -176,7 +183,7 @@ WordGame.prototype.submitGuess = function () { // when a guess is submitted, che
 			var rowToAdd = game.guessFeedback(guess);
 			
 			if (game.numberOfGuesses() == 1) {
-				game.GASendPlay();
+				GASendPlay(game);
 				
 				game.addResponseTitles(game.gameContainer);
 				game.addInputs(game.gameContainer);
@@ -494,7 +501,7 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
     window.onbeforeunload = null;
     clearSave();
 	
-	game.GASendWin();
+	GASendWin(game.numberOfGuesses());
 		
     if (game.guesses[game.numberOfGuesses()-1] == beach(game.getWord())) { // verify
         $('#won-popup').popup({
@@ -528,9 +535,9 @@ WordGame.prototype.gameWon = function () { // popup telling player game is won!
 };
 WordGame.prototype.gameLost = function () { // popup telling them the game is over
 	if (game.name == "time")
-		window.removeEventListener('unload', game.GASendLoss); 
+		window.removeEventListener('unload', GASendLoss); 
 	
-	game.GASendLoss();
+	GASendLoss();
 	
 	$('#lost-popup').popup({ // create a popup
 		content : function () { 
@@ -650,7 +657,7 @@ function clearSave () { // clears a game cookie
 		localStorage.clear();
 		localStorage.setItem(waves("gameSettings"), settings);
 		if (previousExists != false)
-			game.GASendLoss();
+			GASendLoss(previousExists[0], previousExists[1]);
 	}
 };
 WordGame.prototype.continueGame = function () {
@@ -723,7 +730,7 @@ function TimeGame(word) {// create more specific TimeGame class
     this.base('time');
     this.maxGuesses = 15;
     this.reloadMessage = "Progress will be LOST if you leave or reload the game!";
-	window.addEventListener('unload', this.GASendLoss);
+	window.addEventListener('unload', GASendLoss);
 };
 TimeGame.prototype = new WordGame; // set the inheritance chain
 TimeGame.prototype.extraSetup = function () { // add a time element
@@ -771,7 +778,7 @@ function updateTimer() { // interval to update the timer every one second
 }
 TimeGame.prototype.gameWonMessage = function () {
     clearInterval(game.gameInterval);
-	window.removeEventListener('unload', game.GASendLoss);
+	window.removeEventListener('unload', GASendLoss);
     return "I won a #Fives \"" + game.fancyName + "\" game in " + ((game.timerMins == 0) ? "" : (game.timerMins + " " + (((game.timerMins == 1) ? "minute" : "minutes") + " and "))) + game.timerSecs + " " + ((game.timerSecs == 1) ? "second" : "seconds") + "! The word was " + beach(game.getWord()) + ".";    
 };
 TimeGame.prototype.saveGame = function () { // do nothing, no saving, that would be cheating time
@@ -1107,14 +1114,14 @@ $(document).ready(function () { // when the document is ready, check if the brow
 		var previous = GameLoader();
 		//console.log(previous);
 		if (previous != 0 && typeof previous != "undefined") {
-			previousExists = previous.guesses.length;
+			previousExists = [previous.fancyName, previous.guesses.length];
 			$('#continue-popup').popup({ // create a popup to ask if they want to resume
                 content : function () {
                         return buildPopup(
                                         "Continue your last game?",
                                         "You have a saved " + previous.fancyName + " game from " + $.timeago(previous.time) + ".<br />You were on your " + (previous.guesses.length+1) + ((previous.guesses.length+1 == 1) ? "st" : (previous.guesses.length+1 == 2) ? "nd": (previous.guesses.length+1 == 3) ? "rd" : "th") + " guess.<br />Do you want to continue that game?",
                                         "Continue",
-                                            "$('#continue-popup').data('popup').close(); previousExists = false; if (typeof ga != 'undefined'){ ga('send', 'event', 'game', 'continue', " + previous.guesses.length + "); } startGame('" + previous.fancyName + "', " + JSON.stringify(previous) + ");",
+                                            "$('#continue-popup').data('popup').close(); previousExists = false; startGame('" + previous.fancyName + "', " + JSON.stringify(previous) + "); GASendContinue(" + previous.guesses.length + ");",
                                         "Discard Game",
                                             "clearSave(); previousExists = false; $('#continue-popup').data('popup').close();"
                 )},

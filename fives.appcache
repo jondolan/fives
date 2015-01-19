@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# v0.6.5, 01/17/15 23:00
+# v0.6.6, 01/19/15 00:00
 
 # Updates:
 
@@ -29,9 +29,12 @@ CACHE MANIFEST
 #     - Moved "play" event to after first guess is submitted
 #     - Starting to keep track of number of guesses
 
-
 # v0.6.5
 #  - Time Trial sends a loss if the page is reloaded as well as when the game is actually lost
+
+# v0.6.6
+#  - Restructured Google Analyitcs event categories
+#  - Fixed fatal error when trying to resume game
 
 CACHE:
 # HTML
